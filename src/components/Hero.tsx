@@ -37,12 +37,12 @@ const Hero = () => {
               <Phone className="h-5 w-5" />
               <span className="font-poppins font-semibold">Call Us Today: +27 63 412 7228</span>
             </a>
-            <a 
-              href="mailto:project@lumtechsolutions.co.za" 
+            <a
+              href="mailto:projects@lumtechsolutions.co.za"
               className="flex items-center space-x-3 bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-lg transition-all duration-300 backdrop-blur-sm"
             >
               <Mail className="h-5 w-5" />
-              <span className="font-poppins font-medium">project@lumtechsolutions.co.za</span>
+              <span className="font-poppins font-medium">projects@lumtechsolutions.co.za</span>
             </a>
           </div>
 
