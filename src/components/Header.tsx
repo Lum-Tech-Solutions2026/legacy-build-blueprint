@@ -27,9 +27,9 @@ const Header = () => {
               <Phone className="h-4 w-4" />
               <span>+27 63 412 7228</span>
             </a>
-            <a href="mailto:project@lumtechsolutions.co.za" className="flex items-center space-x-2 hover:text-accent transition-colors">
+            <a href="mailto:projects@lumtechsolutions.co.za" className="flex items-center space-x-2 hover:text-accent transition-colors">
               <Mail className="h-4 w-4" />
-              <span>project@lumtechsolutions.co.za</span>
+              <span>projects@lumtechsolutions.co.za</span>
             </a>
           </div>
           <div className="text-sm font-medium">

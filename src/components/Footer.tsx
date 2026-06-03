@@ -74,8 +74,8 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-accent flex-shrink-0" />
-                <a href="mailto:project@lumtechsolutions.co.za" className="text-gray-300 hover:text-accent transition-colors font-open-sans break-all">
-                  project@lumtechsolutions.co.za
+                <a href="mailto:projects@lumtechsolutions.co.za" className="text-gray-300 hover:text-accent transition-colors font-open-sans break-all">
+                  projects@lumtechsolutions.co.za
                 </a>
               </div>
               <div className="flex items-center space-x-3">

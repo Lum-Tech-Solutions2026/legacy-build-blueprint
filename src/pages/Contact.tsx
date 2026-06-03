@@ -189,11 +189,11 @@ const Contact = () => {
                       <Mail className="h-8 w-8 text-accent mt-1 flex-shrink-0" />
                       <div>
                         <h3 className="font-poppins font-semibold text-primary mb-2">Email Us</h3>
-                        <a 
-                          href="mailto:project@lumtechsolutions.co.za" 
+                        <a
+                          href="mailto:projects@lumtechsolutions.co.za"
                           className="font-open-sans text-gray-600 hover:text-accent transition-colors break-all"
                         >
-                          project@lumtechsolutions.co.za
+                          projects@lumtechsolutions.co.za
                         </a>
                         <p className="font-open-sans text-sm text-gray-500 mt-1">
                           Click to send email
@@ -226,8 +226,8 @@ const Contact = () => {
                         <Phone className="h-5 w-5" />
                         <span className="font-poppins font-semibold">Call Now</span>
                       </a>
-                      <a 
-                        href="mailto:project@lumtechsolutions.co.za"
+                      <a
+                        href="mailto:projects@lumtechsolutions.co.za"
                         className="flex items-center justify-center space-x-2 w-full border-2 border-accent text-accent hover:bg-accent hover:text-white py-3 rounded-lg transition-colors"
                       >
                         <Mail className="h-5 w-5" />
