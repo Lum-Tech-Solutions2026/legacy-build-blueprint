@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-construction.jpg";
 
 const Hero = () => {
@@ -30,28 +31,31 @@ const Hero = () => {
           {/* Contact Info */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-10">
             <a 
-              href="tel:0611469246" 
+              href="tel:+27634127228" 
               className="flex items-center space-x-3 bg-accent hover:bg-accent/90 text-white px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               <Phone className="h-5 w-5" />
-              <span className="font-poppins font-semibold">Call Us Today: 061 146 9246</span>
+              <span className="font-poppins font-semibold">Call Us Today: +27 63 412 7228</span>
             </a>
             <a 
-              href="mailto:info@legacyhomebuilderssa.co.za" 
+              href="mailto:project@lumtechsolutions.co.za" 
               className="flex items-center space-x-3 bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-lg transition-all duration-300 backdrop-blur-sm"
             >
               <Mail className="h-5 w-5" />
-              <span className="font-poppins font-medium">info@legacyhomebuilderssa.co.za</span>
+              <span className="font-poppins font-medium">project@lumtechsolutions.co.za</span>
             </a>
           </div>
 
           {/* CTA Button */}
           <Button 
+            asChild
             size="lg" 
-            className="bg-accent hover:bg-accent/90 text-white font-poppins font-bold text-lg px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-gold-glow group"
+            className="bg-accent hover:bg-accent/90 text-accent-foreground font-poppins font-bold text-lg px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-gold-glow group"
           >
-            Request a Quote
-            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            <Link to="/contact">
+              Request a Quote
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </Button>
 
           {/* Trust Indicators */}

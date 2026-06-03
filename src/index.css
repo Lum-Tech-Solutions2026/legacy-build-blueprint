@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Legacy Home Builders Design System */
+    /* Lum Tech Construction Design System */
     --background: 0 0% 100%;
     --foreground: 215 25% 20%;
 
@@ -30,8 +30,8 @@ All colors MUST be HSL.
     --muted: 0 0% 96%;
     --muted-foreground: 215 16% 47%;
 
-    /* Accent: Rich Gold (#C9A349) */
-    --accent: 45 53% 53%;
+    /* Accent: Emerald Green (Lum Tech brand) */
+    --accent: 158 64% 45%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -45,17 +45,17 @@ All colors MUST be HSL.
 
     /* Custom design tokens */
     --construction-primary: 214 70% 16%;
-    --construction-gold: 45 53% 53%;
+    --construction-gold: 158 64% 45%;
     --construction-light: 0 0% 96%;
     --construction-text: 215 25% 20%;
     
     /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(214 70% 16% / 0.9), hsl(214 70% 16% / 0.7));
-    --gradient-accent: linear-gradient(135deg, hsl(45 53% 53%), hsl(45 53% 60%));
+    --gradient-accent: linear-gradient(135deg, hsl(158 64% 45%), hsl(158 64% 52%));
     
     /* Shadows */
     --shadow-construction: 0 10px 30px -10px hsl(214 70% 16% / 0.3);
-    --shadow-gold-glow: 0 0 40px hsl(45 53% 53% / 0.2);
+    --shadow-gold-glow: 0 0 40px hsl(158 64% 45% / 0.2);
     
     /* Animations */
     --transition-construction: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

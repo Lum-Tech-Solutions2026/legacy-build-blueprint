@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, Mail } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import logo from "@/assets/lumtech-logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,26 +12,24 @@ const Header = () => {
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
-    { name: "Gallery", path: "/gallery" },
-    { name: "Testimonials", path: "/testimonials" },
     { name: "Contact", path: "/contact" },
   ];
 
   const isActivePage = (path: string) => location.pathname === path;
 
   return (
-    <header className="bg-primary text-primary-foreground shadow-construction sticky top-0 z-50">
+    <header className="bg-background shadow-sm border-b border-border sticky top-0 z-50">
       {/* Top contact bar */}
-      <div className="hidden md:block bg-construction-gold text-white py-2">
+      <div className="hidden md:block bg-primary text-primary-foreground py-2">
         <div className="container mx-auto px-4 flex justify-between items-center text-sm">
           <div className="flex items-center space-x-6">
-            <a href="tel:0611469246" className="flex items-center space-x-2 hover:text-primary transition-colors">
+            <a href="tel:+27634127228" className="flex items-center space-x-2 hover:text-accent transition-colors">
               <Phone className="h-4 w-4" />
-              <span>061 146 9246</span>
+              <span>+27 63 412 7228</span>
             </a>
-            <a href="mailto:info@legacyhomebuilderssa.co.za" className="flex items-center space-x-2 hover:text-primary transition-colors">
+            <a href="mailto:project@lumtechsolutions.co.za" className="flex items-center space-x-2 hover:text-accent transition-colors">
               <Mail className="h-4 w-4" />
-              <span>info@legacyhomebuilderssa.co.za</span>
+              <span>project@lumtechsolutions.co.za</span>
             </a>
           </div>
           <div className="text-sm font-medium">
@@ -41,16 +40,10 @@ const Header = () => {
 
       {/* Main navigation */}
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center py-3">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">LH</span>
-            </div>
-            <div>
-              <h1 className="text-xl font-poppins font-bold">Legacy Home Builders SA</h1>
-              <p className="text-sm text-gray-300">Building Your Vision</p>
-            </div>
+          <Link to="/" className="flex items-center">
+            <img src={logo} alt="Lum Tech Construction logo" className="h-12 md:h-14 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -59,22 +52,22 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`font-poppins font-medium transition-colors hover:text-accent ${
+                className={`font-poppins font-medium text-foreground transition-colors hover:text-accent ${
                   isActivePage(item.path) ? "text-accent" : ""
                 }`}
               >
                 {item.name}
               </Link>
             ))}
-            <Button variant="secondary" size="sm" className="font-poppins font-semibold">
-              Request Quote
+            <Button asChild variant="default" size="sm" className="font-poppins font-semibold bg-accent hover:bg-accent/90 text-accent-foreground">
+              <Link to="/contact">Request Quote</Link>
             </Button>
           </nav>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2"
+            className="md:hidden p-2 text-foreground"
           >
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -82,23 +75,23 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden pb-4 border-t border-white/20 mt-4">
-            <div className="space-y-2 pt-4">
+          <nav className="md:hidden pb-4 border-t border-border mt-2">
+            <div className="space-y-1 pt-4">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.path}
-                  className={`block py-2 px-4 font-poppins transition-colors hover:text-accent ${
-                    isActivePage(item.path) ? "text-accent bg-white/10" : ""
+                  className={`block py-2 px-4 rounded-md font-poppins text-foreground transition-colors hover:text-accent ${
+                    isActivePage(item.path) ? "text-accent bg-secondary" : ""
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
-              <div className="pt-2">
-                <Button variant="secondary" size="sm" className="w-full font-poppins font-semibold">
-                  Request Quote
+              <div className="pt-2 px-4">
+                <Button asChild variant="default" size="sm" className="w-full font-poppins font-semibold bg-accent hover:bg-accent/90 text-accent-foreground">
+                  <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Request Quote</Link>
                 </Button>
               </div>
             </div>

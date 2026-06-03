@@ -1,5 +1,6 @@
 import { Home, Building, Hammer, Shield, Palette, Ruler } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   const services = [
@@ -103,11 +104,11 @@ const Services = () => {
               We're here to turn your vision into reality.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-accent hover:bg-accent/90 text-white font-poppins font-semibold px-8 py-3">
-                Request Free Quote
+              <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground font-poppins font-semibold px-8 py-3">
+                <Link to="/contact">Request Free Quote</Link>
               </Button>
-              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white font-poppins font-semibold px-8 py-3">
-                View Our Gallery
+              <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-poppins font-semibold px-8 py-3">
+                <Link to="/services">Explore Services</Link>
               </Button>
             </div>
           </div>

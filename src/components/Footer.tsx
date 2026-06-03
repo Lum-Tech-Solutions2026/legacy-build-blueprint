@@ -1,5 +1,6 @@
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
+import logo from "@/assets/lumtech-logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,12 +12,10 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">LH</span>
-              </div>
+              <img src={logo} alt="Lum Tech Construction logo" className="h-12 w-auto bg-white rounded-md p-1.5" />
               <div>
-                <h3 className="text-lg font-poppins font-bold">Legacy Home Builders SA</h3>
-                <p className="text-sm text-gray-300">Building Your Vision</p>
+                <h3 className="text-lg font-poppins font-bold">Lum Tech Construction</h3>
+                <p className="text-sm text-gray-300">Building Excellence</p>
               </div>
             </div>
             <p className="text-gray-300 font-open-sans">
@@ -37,9 +36,6 @@ const Footer = () => {
               </Link>
               <Link to="/services" className="block text-gray-300 hover:text-accent transition-colors font-open-sans">
                 Our Services
-              </Link>
-              <Link to="/gallery" className="block text-gray-300 hover:text-accent transition-colors font-open-sans">
-                Gallery
               </Link>
               <Link to="/contact" className="block text-gray-300 hover:text-accent transition-colors font-open-sans">
                 Contact
@@ -72,14 +68,14 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-accent flex-shrink-0" />
-                <a href="tel:0611469246" className="text-gray-300 hover:text-accent transition-colors font-open-sans">
-                  061 146 9246
+                <a href="tel:+27634127228" className="text-gray-300 hover:text-accent transition-colors font-open-sans">
+                  +27 63 412 7228
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-accent flex-shrink-0" />
-                <a href="mailto:info@legacyhomebuilderssa.co.za" className="text-gray-300 hover:text-accent transition-colors font-open-sans break-all">
-                  info@legacyhomebuilderssa.co.za
+                <a href="mailto:project@lumtechsolutions.co.za" className="text-gray-300 hover:text-accent transition-colors font-open-sans break-all">
+                  project@lumtechsolutions.co.za
                 </a>
               </div>
               <div className="flex items-center space-x-3">
@@ -95,7 +91,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-white/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-300 font-open-sans text-sm">
-            © {currentYear} Legacy Home Builders SA. All rights reserved.
+            © {currentYear} Lum Tech Construction. All rights reserved.
           </p>
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
             <span className="text-accent font-poppins font-semibold text-sm">NHBRC Registered</span>

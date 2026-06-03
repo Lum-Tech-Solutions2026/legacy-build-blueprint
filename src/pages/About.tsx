@@ -30,7 +30,7 @@ const About = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-6xl font-poppins font-bold mb-6">
-                About Legacy Home Builders SA
+                About Lum Tech Construction
               </h1>
               <div className="w-24 h-1 bg-accent mx-auto mb-8"></div>
               <p className="text-xl font-open-sans text-gray-200 leading-relaxed">
@@ -51,7 +51,7 @@ const About = () => {
                     Our Story
                   </h2>
                   <p className="font-open-sans text-gray-600 leading-relaxed text-lg">
-                    Legacy Home Builders SA was founded with one mission: to deliver exceptional quality in every brick we lay. 
+                    Lum Tech Construction was founded with one mission: to deliver exceptional quality in every brick we lay. 
                     With over a decade in the construction industry, we have built a strong reputation for professionalism, 
                     reliability, and attention to detail.
                   </p>

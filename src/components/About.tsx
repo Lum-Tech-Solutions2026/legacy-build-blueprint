@@ -27,7 +27,7 @@ const About = () => {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-poppins font-bold text-primary mb-6">
-              Welcome to Legacy Home Builders SA
+              Welcome to Lum Tech Construction
             </h2>
             <div className="w-24 h-1 bg-accent mx-auto mb-8"></div>
             <p className="text-lg font-open-sans text-gray-600 max-w-4xl mx-auto leading-relaxed">

@@ -5,7 +5,7 @@ const Testimonials = () => {
     {
       name: "Mr. Dlamini",
       location: "Pietermaritzburg",
-      text: "Legacy Home Builders SA did an incredible job on our new home. Professional from start to finish! The quality of workmanship exceeded our expectations and they completed the project on time.",
+      text: "Lum Tech Construction did an incredible job on our new home. Professional from start to finish! The quality of workmanship exceeded our expectations and they completed the project on time.",
       rating: 5,
       project: "New Home Construction"
     },
@@ -100,7 +100,7 @@ const Testimonials = () => {
                 Join Our Satisfied Clients
               </h3>
               <p className="font-open-sans text-gray-200 mb-6 max-w-2xl mx-auto">
-                Experience the Legacy Home Builders SA difference. Quality workmanship, professional service, 
+                Experience the Lum Tech Construction difference. Quality workmanship, professional service, 
                 and customer satisfaction guaranteed on every project.
               </p>
               <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
