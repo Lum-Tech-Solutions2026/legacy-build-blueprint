@@ -184,11 +184,11 @@ const Services = () => {
                 We're here to turn your vision into reality with professional service and quality workmanship.
               </p>
               <div className="flex flex-col md:flex-row gap-4 justify-center">
-                <Button className="bg-accent hover:bg-accent/90 text-white font-poppins font-bold px-8 py-4 text-lg">
-                  Request Free Consultation
+                <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground font-poppins font-bold px-8 py-4 text-lg">
+                  <Link to="/contact">Request Free Consultation</Link>
                 </Button>
-                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-primary font-poppins font-semibold px-8 py-4 text-lg">
-                  View Our Gallery
+                <Button asChild variant="outline" className="border-white text-white hover:bg-white hover:text-primary font-poppins font-semibold px-8 py-4 text-lg">
+                  <Link to="/contact">Contact Us</Link>
                 </Button>
               </div>
             </div>
