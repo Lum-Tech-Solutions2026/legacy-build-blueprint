@@ -173,10 +173,10 @@ const Contact = () => {
                       <div>
                         <h3 className="font-poppins font-semibold text-primary mb-2">Call Us</h3>
                         <a 
-                          href="tel:0611469246" 
+                          href="tel:+27634127228" 
                           className="font-open-sans text-gray-600 hover:text-accent transition-colors text-lg"
                         >
-                          061 146 9246
+                          +27 63 412 7228
                         </a>
                         <p className="font-open-sans text-sm text-gray-500 mt-1">
                           Click to call directly
@@ -190,10 +190,10 @@ const Contact = () => {
                       <div>
                         <h3 className="font-poppins font-semibold text-primary mb-2">Email Us</h3>
                         <a 
-                          href="mailto:info@legacyhomebuilderssa.co.za" 
+                          href="mailto:project@lumtechsolutions.co.za" 
                           className="font-open-sans text-gray-600 hover:text-accent transition-colors break-all"
                         >
-                          info@legacyhomebuilderssa.co.za
+                          project@lumtechsolutions.co.za
                         </a>
                         <p className="font-open-sans text-sm text-gray-500 mt-1">
                           Click to send email
@@ -220,14 +220,14 @@ const Contact = () => {
                     <h3 className="font-poppins font-semibold text-primary">Quick Actions</h3>
                     <div className="space-y-3">
                       <a 
-                        href="tel:0611469246"
+                        href="tel:+27634127228"
                         className="flex items-center justify-center space-x-2 w-full bg-accent hover:bg-accent/90 text-white py-3 rounded-lg transition-colors"
                       >
                         <Phone className="h-5 w-5" />
                         <span className="font-poppins font-semibold">Call Now</span>
                       </a>
                       <a 
-                        href="mailto:info@legacyhomebuilderssa.co.za"
+                        href="mailto:project@lumtechsolutions.co.za"
                         className="flex items-center justify-center space-x-2 w-full border-2 border-accent text-accent hover:bg-accent hover:text-white py-3 rounded-lg transition-colors"
                       >
                         <Mail className="h-5 w-5" />
