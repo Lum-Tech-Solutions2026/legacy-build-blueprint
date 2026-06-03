@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-construction.jpg";
 
 const Hero = () => {
@@ -47,11 +48,14 @@ const Hero = () => {
 
           {/* CTA Button */}
           <Button 
+            asChild
             size="lg" 
-            className="bg-accent hover:bg-accent/90 text-white font-poppins font-bold text-lg px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-gold-glow group"
+            className="bg-accent hover:bg-accent/90 text-accent-foreground font-poppins font-bold text-lg px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-gold-glow group"
           >
-            Request a Quote
-            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            <Link to="/contact">
+              Request a Quote
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </Button>
 
           {/* Trust Indicators */}
