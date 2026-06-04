@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { CheckCircle, Award, Users, Clock, Target, Heart } from "lucide-react";
+import { CheckCircle, Award, Users, Clock, Target, Heart, Eye } from "lucide-react";
 
 const About = () => {
   const values = [
