@@ -22,6 +22,10 @@ const Footer = () => {
               Over 10 years of experience in delivering exceptional building services. 
               NHBRC registered for your peace of mind.
             </p>
+            <p className="text-accent font-open-sans italic text-sm border-l-2 border-accent pl-3">
+              Our mission: to build lasting structures and lasting relationships through quality
+              craftsmanship, integrity, and exceptional service.
+            </p>
           </div>
 
           {/* Quick Links */}
@@ -36,6 +40,12 @@ const Footer = () => {
               </Link>
               <Link to="/services" className="block text-gray-300 hover:text-accent transition-colors font-open-sans">
                 Our Services
+              </Link>
+              <Link to="/portfolio" className="block text-gray-300 hover:text-accent transition-colors font-open-sans">
+                Portfolio
+              </Link>
+              <Link to="/blog" className="block text-gray-300 hover:text-accent transition-colors font-open-sans">
+                Blog
               </Link>
               <Link to="/contact" className="block text-gray-300 hover:text-accent transition-colors font-open-sans">
                 Contact
