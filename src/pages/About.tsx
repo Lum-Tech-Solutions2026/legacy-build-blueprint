@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { CheckCircle, Award, Users, Clock, Target, Heart } from "lucide-react";
+import { CheckCircle, Award, Users, Clock, Target, Heart, Eye } from "lucide-react";
 
 const About = () => {
   const values = [
@@ -99,6 +99,42 @@ const About = () => {
             </div>
           </div>
         </section>
+
+        {/* Vision & Mission */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-poppins font-bold text-primary mb-6">
+                  Our Vision &amp; Mission
+                </h2>
+                <div className="w-24 h-1 bg-accent mx-auto" />
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="bg-construction-light p-10 rounded-lg border-t-4 border-accent">
+                  <Eye className="h-12 w-12 text-accent mb-6" />
+                  <h3 className="text-2xl font-poppins font-bold text-primary mb-4">Our Vision</h3>
+                  <p className="font-open-sans text-gray-600 leading-relaxed text-lg">
+                    To be KwaZulu-Natal's most trusted construction partner — recognised for
+                    setting the standard in quality, innovation, and integrity, while shaping
+                    communities through buildings that stand the test of time.
+                  </p>
+                </div>
+                <div className="bg-primary p-10 rounded-lg border-t-4 border-accent text-white">
+                  <Target className="h-12 w-12 text-accent mb-6" />
+                  <h3 className="text-2xl font-poppins font-bold mb-4">Our Mission</h3>
+                  <p className="font-open-sans text-gray-200 leading-relaxed text-lg">
+                    To deliver exceptional construction services through skilled craftsmanship,
+                    transparent communication, and unwavering commitment to safety and quality —
+                    turning every client's vision into a lasting legacy, on time and within budget.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
 
         {/* Our Values */}
         <section className="py-20 bg-construction-light">

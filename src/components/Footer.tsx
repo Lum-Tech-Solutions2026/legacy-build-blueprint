@@ -22,6 +22,10 @@ const Footer = () => {
               Over 10 years of experience in delivering exceptional building services. 
               NHBRC registered for your peace of mind.
             </p>
+            <p className="text-accent font-open-sans italic text-sm border-l-2 border-accent pl-3">
+              Our mission: to build lasting structures and lasting relationships through quality
+              craftsmanship, integrity, and exceptional service.
+            </p>
           </div>
 
           {/* Quick Links */}
@@ -37,6 +41,12 @@ const Footer = () => {
               <Link to="/services" className="block text-gray-300 hover:text-accent transition-colors font-open-sans">
                 Our Services
               </Link>
+              <Link to="/portfolio" className="block text-gray-300 hover:text-accent transition-colors font-open-sans">
+                Portfolio
+              </Link>
+              <Link to="/blog" className="block text-gray-300 hover:text-accent transition-colors font-open-sans">
+                Blog
+              </Link>
               <Link to="/contact" className="block text-gray-300 hover:text-accent transition-colors font-open-sans">
                 Contact
               </Link>
@@ -47,12 +57,11 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-lg font-poppins font-semibold text-accent">Our Services</h4>
             <ul className="space-y-2 text-gray-300 font-open-sans">
-              <li>Residential Construction</li>
-              <li>Commercial Construction</li>
-              <li>Home Renovations</li>
-              <li>Roofing & Waterproofing</li>
-              <li>Tiling & Painting</li>
-              <li>Custom Design</li>
+              {["Residential Construction", "Commercial Construction", "Home Renovations", "Roofing & Waterproofing", "Tiling & Painting", "Custom Design"].map((s) => (
+                <li key={s}>
+                  <Link to="/services" className="hover:text-accent transition-colors">{s}</Link>
+                </li>
+              ))}
             </ul>
           </div>
 
