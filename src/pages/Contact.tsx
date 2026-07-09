@@ -1,13 +1,16 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, Loader2, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,6 +18,8 @@ const Contact = () => {
     subject: "",
     message: ""
   });
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -24,10 +29,26 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
+    setSubmitting(true);
+    try {
+      const { error } = await supabase.from("leads").insert({
+        name: formData.name,
+        email: formData.email || null,
+        phone: formData.phone || null,
+        project_type: formData.subject || null,
+        message: formData.message || null,
+        source: "contact_page",
+      });
+      if (error) throw error;
+      setSubmitted(true);
+      toast({ title: "Message sent!", description: "We'll get back to you within 24 hours." });
+    } catch (err: any) {
+      toast({ title: "Something went wrong", description: err.message, variant: "destructive" });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -66,6 +87,17 @@ const Contact = () => {
                     </p>
                   </div>
 
+                  {submitted ? (
+                    <div className="text-center py-10 bg-construction-light rounded-lg">
+                      <CheckCircle2 className="h-14 w-14 text-accent mx-auto mb-4" />
+                      <h3 className="font-poppins font-bold text-xl text-primary mb-2">
+                        Thank you, {formData.name.split(" ")[0]}!
+                      </h3>
+                      <p className="font-open-sans text-gray-600 max-w-sm mx-auto">
+                        Your message has been received. Our team will get back to you within 24 hours.
+                      </p>
+                    </div>
+                  ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-2">
@@ -134,12 +166,14 @@ const Contact = () => {
 
                     <Button 
                       type="submit" 
+                      disabled={submitting}
                       className="w-full bg-accent hover:bg-accent/90 text-white font-poppins font-semibold py-3"
                     >
-                      <Send className="mr-2 h-5 w-5" />
-                      Send Message
+                      {submitting ? <Loader2 className="mr-2 h-5 w-5 animate-spin" /> : <Send className="mr-2 h-5 w-5" />}
+                      {submitting ? "Sending..." : "Send Message"}
                     </Button>
                   </form>
+                  )}
                 </div>
 
                 {/* Contact Information */}
@@ -160,7 +194,7 @@ const Contact = () => {
                       <div>
                         <h3 className="font-poppins font-semibold text-primary mb-2">Our Location</h3>
                         <p className="font-open-sans text-gray-600">
-                          No.03 Streamview Pl<br />
+                          5 Wooford Pl, Hayfields<br />
                           Pietermaritzburg KZN<br />
                           South Africa
                         </p>
@@ -257,7 +291,7 @@ const Contact = () => {
                     <MapPin className="h-16 w-16 text-accent mx-auto mb-4" />
                     <h3 className="font-poppins font-semibold text-primary mb-2">Interactive Map</h3>
                     <p className="font-open-sans text-gray-600">
-                      No.03 Streamview Pl, Pietermaritzburg KZN
+                      5 Wooford Pl, Hayfields, Pietermaritzburg KZN
                     </p>
                     <p className="font-open-sans text-sm text-gray-500 mt-2">
                       Google Maps integration would be placed here

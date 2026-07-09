@@ -1,18 +1,16 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { uploadMedia, deleteMedia, getMediaUrl } from "@/lib/media";
-import { useAuth } from "@/hooks/useAuth";
+import AdminLayout from "@/components/AdminLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, Trash2, Plus, LogOut } from "lucide-react";
+import { Loader2, Trash2, Plus } from "lucide-react";
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
-import logo from "@/assets/lumtech-logo.png";
 
 interface Item {
   id: string;
@@ -27,7 +25,6 @@ const CATEGORIES = ["Residential", "Commercial", "Renovations", "Other"];
 const empty = { title: "", description: "", category: "Residential" };
 
 const AdminPortfolio = () => {
-  const { signOut } = useAuth();
   const { toast } = useToast();
   const [items, setItems] = useState<Item[]>([]);
   const [thumbs, setThumbs] = useState<Record<string, string>>({});
@@ -87,21 +84,7 @@ const AdminPortfolio = () => {
   };
 
   return (
-    <div className="min-h-screen bg-construction-light">
-      <header className="bg-primary text-white">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link to="/"><img src={logo} alt="logo" className="h-10 w-auto bg-white rounded p-1" /></Link>
-          <nav className="flex items-center gap-4 font-poppins text-sm">
-            <Link to="/admin/blog" className="hover:text-accent">Blog</Link>
-            <Link to="/admin/portfolio" className="text-accent font-semibold">Portfolio</Link>
-            <button onClick={signOut} className="flex items-center gap-1 hover:text-accent"><LogOut className="h-4 w-4" /> Sign out</button>
-          </nav>
-        </div>
-      </header>
-
-      <main className="container mx-auto px-4 py-10 max-w-4xl">
-        <h1 className="text-3xl font-poppins font-bold text-primary mb-6">Manage Portfolio</h1>
-
+    <AdminLayout title="Manage Portfolio">
         <form onSubmit={save} className="bg-white rounded-lg shadow p-6 space-y-4 mb-10">
           <h2 className="text-xl font-poppins font-semibold text-primary flex items-center gap-2">
             <Plus className="h-5 w-5 text-accent" /> Add Project
@@ -159,8 +142,7 @@ const AdminPortfolio = () => {
             ))}
           </div>
         )}
-      </main>
-    </div>
+    </AdminLayout>
   );
 };
 

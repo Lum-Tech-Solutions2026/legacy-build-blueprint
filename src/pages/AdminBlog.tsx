@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { uploadMedia, deleteMedia } from "@/lib/media";
+import AdminLayout from "@/components/AdminLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, Trash2, Pencil, Plus, LogOut, Image as ImageIcon } from "lucide-react";
-import logo from "@/assets/lumtech-logo.png";
+import { Loader2, Trash2, Pencil, Plus, Image as ImageIcon } from "lucide-react";
 
 interface Post {
   id: string;
@@ -29,7 +28,7 @@ const slugify = (s: string) =>
 const empty = { title: "", slug: "", excerpt: "", content: "", published: false, cover_image_url: "" };
 
 const AdminBlog = () => {
-  const { user, signOut } = useAuth();
+  const { user } = useAuth();
   const { toast } = useToast();
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
@@ -117,21 +116,7 @@ const AdminBlog = () => {
   };
 
   return (
-    <div className="min-h-screen bg-construction-light">
-      <header className="bg-primary text-white">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link to="/"><img src={logo} alt="logo" className="h-10 w-auto bg-white rounded p-1" /></Link>
-          <nav className="flex items-center gap-4 font-poppins text-sm">
-            <Link to="/admin/blog" className="text-accent font-semibold">Blog</Link>
-            <Link to="/admin/portfolio" className="hover:text-accent">Portfolio</Link>
-            <button onClick={signOut} className="flex items-center gap-1 hover:text-accent"><LogOut className="h-4 w-4" /> Sign out</button>
-          </nav>
-        </div>
-      </header>
-
-      <main className="container mx-auto px-4 py-10 max-w-4xl">
-        <h1 className="text-3xl font-poppins font-bold text-primary mb-6">Manage Blog</h1>
-
+    <AdminLayout title="Manage Blog">
         <form onSubmit={save} className="bg-white rounded-lg shadow p-6 space-y-4 mb-10">
           <h2 className="text-xl font-poppins font-semibold text-primary flex items-center gap-2">
             <Plus className="h-5 w-5 text-accent" /> {editingId ? "Edit Post" : "New Post"}
@@ -196,8 +181,7 @@ const AdminBlog = () => {
             ))}
           </div>
         )}
-      </main>
-    </div>
+    </AdminLayout>
   );
 };
 
