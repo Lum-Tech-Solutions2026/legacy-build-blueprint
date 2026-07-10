@@ -185,7 +185,7 @@ const AdminDashboard = () => {
               <XAxis dataKey="date" tick={{ fontSize: 11 }} interval={4} />
               <YAxis allowDecimals={false} tick={{ fontSize: 11 }} />
               <Tooltip />
-              <Line type="monotone" dataKey="count" stroke="hsl(158 64% 45%)" strokeWidth={2} dot={false} />
+              <Line type="monotone" dataKey="count" stroke="hsl(201 100% 49%)" strokeWidth={2} dot={false} />
             </LineChart>
           </ResponsiveContainer>
         </div>
@@ -217,7 +217,7 @@ const AdminDashboard = () => {
               <XAxis dataKey="month" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `R${v / 1000}k`} />
               <Tooltip formatter={(v: number) => currency(v)} />
-              <Bar dataKey="revenue" fill="hsl(214 70% 16%)" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="revenue" fill="hsl(212 55% 9%)" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>

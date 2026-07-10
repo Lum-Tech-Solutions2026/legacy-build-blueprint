@@ -19,7 +19,7 @@ All colors MUST be HSL.
     --popover-foreground: 215 25% 20%;
 
     /* Primary: Deep Navy Blue (#0A1F44) */
-    --primary: 214 70% 16%;
+    --primary: 212 55% 9%;
     --primary-foreground: 0 0% 100%;
 
     /* Secondary: Light Gray Background */
@@ -31,7 +31,7 @@ All colors MUST be HSL.
     --muted-foreground: 215 16% 47%;
 
     /* Accent: Emerald Green (Lum Tech brand) */
-    --accent: 158 64% 45%;
+    --accent: 201 100% 49%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -44,18 +44,18 @@ All colors MUST be HSL.
     --radius: 0.75rem;
 
     /* Custom design tokens */
-    --construction-primary: 214 70% 16%;
-    --construction-gold: 158 64% 45%;
+    --construction-primary: 212 55% 9%;
+    --construction-gold: 201 100% 49%;
     --construction-light: 0 0% 96%;
     --construction-text: 215 25% 20%;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(214 70% 16% / 0.9), hsl(214 70% 16% / 0.7));
-    --gradient-accent: linear-gradient(135deg, hsl(158 64% 45%), hsl(158 64% 52%));
+    --gradient-hero: linear-gradient(135deg, hsl(212 55% 9% / 0.92), hsl(212 55% 9% / 0.75));
+    --gradient-accent: linear-gradient(135deg, hsl(193 100% 50%), hsl(211 100% 46%));
     
     /* Shadows */
-    --shadow-construction: 0 10px 30px -10px hsl(214 70% 16% / 0.3);
-    --shadow-gold-glow: 0 0 40px hsl(158 64% 45% / 0.2);
+    --shadow-construction: 0 10px 30px -10px hsl(212 55% 9% / 0.3);
+    --shadow-gold-glow: 0 0 40px hsl(201 100% 49% / 0.25);
     
     /* Animations */
     --transition-construction: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

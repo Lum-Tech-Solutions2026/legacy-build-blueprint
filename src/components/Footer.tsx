@@ -12,7 +12,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <img src={logo} alt="Lum Tech Construction logo" className="h-12 w-auto bg-white rounded-md p-1.5" />
+              <img src={logo} alt="Lum Tech Construction logo" className="h-14 w-auto" />
               <div>
                 <h3 className="text-lg font-poppins font-bold">Lum Tech Construction</h3>
                 <p className="text-sm text-gray-300">Building Excellence</p>
