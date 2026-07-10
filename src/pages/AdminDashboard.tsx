@@ -86,7 +86,7 @@ const AdminDashboard = () => {
       const [leadsRes, projectsRes, paymentsRes] = await Promise.all([
         supabase.from("leads").select("id,status,created_at,estimated_value"),
         supabase.from("projects").select("id,status,budget"),
-        supabase.from("payments").select("id,amount,paid_at"),
+        supabase.from("construction_payments").select("id,amount,paid_at"),
       ]);
       setLeads(leadsRes.data ?? []);
       setProjects(projectsRes.data ?? []);

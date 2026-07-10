@@ -66,7 +66,7 @@ const AdminProjects = () => {
     const [projRes, clientRes, payRes] = await Promise.all([
       supabase.from("projects").select("*").order("created_at", { ascending: false }),
       supabase.from("clients").select("id,name"),
-      supabase.from("payments").select("*").order("paid_at", { ascending: false }),
+      supabase.from("construction_payments").select("*").order("paid_at", { ascending: false }),
     ]);
     setProjects(projRes.data ?? []);
     setClients(clientRes.data ?? []);
@@ -117,7 +117,7 @@ const AdminProjects = () => {
 
   const savePayment = async () => {
     if (!paymentProject || !paymentForm.amount) return;
-    const { error } = await supabase.from("payments").insert({
+    const { error } = await supabase.from("construction_payments").insert({
       project_id: paymentProject.id,
       amount: Number(paymentForm.amount),
       type: paymentForm.type as any,

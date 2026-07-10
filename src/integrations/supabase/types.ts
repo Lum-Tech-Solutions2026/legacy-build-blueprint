@@ -150,12 +150,12 @@ export type Database = {
           },
         ]
       }
-      payments: {
+      construction_payments: {
         Row: {
           id: string
           project_id: string
           amount: number
-          type: Database["public"]["Enums"]["payment_type"]
+          type: Database["public"]["Enums"]["construction_payment_type"]
           paid_at: string
           notes: string | null
           created_at: string
@@ -164,7 +164,7 @@ export type Database = {
           id?: string
           project_id: string
           amount: number
-          type?: Database["public"]["Enums"]["payment_type"]
+          type?: Database["public"]["Enums"]["construction_payment_type"]
           paid_at?: string
           notes?: string | null
           created_at?: string
@@ -173,14 +173,14 @@ export type Database = {
           id?: string
           project_id?: string
           amount?: number
-          type?: Database["public"]["Enums"]["payment_type"]
+          type?: Database["public"]["Enums"]["construction_payment_type"]
           paid_at?: string
           notes?: string | null
           created_at?: string
         }
         Relationships: [
           {
-            foreignKeyName: "payments_project_id_fkey"
+            foreignKeyName: "construction_payments_project_id_fkey"
             columns: ["project_id"]
             isOneToOne: false
             referencedRelation: "projects"
@@ -322,7 +322,7 @@ export type Database = {
       app_role: "admin" | "user"
       lead_status: "new" | "contacted" | "quoted" | "won" | "lost"
       project_status: "quoted" | "in_progress" | "completed" | "on_hold" | "cancelled"
-      payment_type: "deposit" | "milestone" | "final" | "other"
+      construction_payment_type: "deposit" | "milestone" | "final" | "other"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -453,7 +453,7 @@ export const Constants = {
       app_role: ["admin", "user"],
       lead_status: ["new", "contacted", "quoted", "won", "lost"],
       project_status: ["quoted", "in_progress", "completed", "on_hold", "cancelled"],
-      payment_type: ["deposit", "milestone", "final", "other"],
+      construction_payment_type: ["deposit", "milestone", "final", "other"],
     },
   },
 } as const
