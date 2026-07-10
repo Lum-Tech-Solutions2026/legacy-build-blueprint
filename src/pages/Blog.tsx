@@ -47,7 +47,7 @@ const Blog = () => {
             <h1 className="text-4xl md:text-6xl font-poppins font-bold mb-6">Our Blog</h1>
             <div className="w-24 h-1 bg-accent mx-auto mb-8" />
             <p className="text-xl font-open-sans text-gray-200">
-              Insights, project stories, and construction tips from the Lum Tech Construction team.
+              Insights, project stories, and construction tips from the Lum Tech Building Solutions team.
             </p>
           </div>
         </section>

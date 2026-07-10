@@ -12,9 +12,9 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <img src={logo} alt="Lum Tech Construction logo" className="h-14 w-auto" />
+              <img src={logo} alt="Lum Tech Building Solutions logo" className="h-14 w-auto" />
               <div>
-                <h3 className="text-lg font-poppins font-bold">Lum Tech Construction</h3>
+                <h3 className="text-lg font-poppins font-bold">Lum Tech Building Solutions</h3>
                 <p className="text-sm text-gray-300">Building Excellence</p>
               </div>
             </div>
@@ -100,7 +100,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-white/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-300 font-open-sans text-sm">
-            © {currentYear} Lum Tech Construction. All rights reserved.
+            © {currentYear} Lum Tech Building Solutions. All rights reserved.
           </p>
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
             <span className="text-accent font-poppins font-semibold text-sm">NHBRC Registered</span>

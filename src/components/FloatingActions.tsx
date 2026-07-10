@@ -7,7 +7,7 @@ import QuoteForm from "@/components/QuoteForm";
 
 const WHATSAPP_NUMBER = "27634127228";
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Hi Lum Tech Construction, I'd like a quote for a project."
+  "Hi Lum Tech Building Solutions, I'd like a quote for a project."
 );
 
 const FloatingActions = () => {

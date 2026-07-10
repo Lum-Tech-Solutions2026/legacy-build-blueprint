@@ -45,7 +45,7 @@ const Header = () => {
         <div className="flex justify-between items-center py-3">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="Lum Tech Construction logo" className="h-12 md:h-14 w-auto" />
+            <img src={logo} alt="Lum Tech Building Solutions logo" className="h-12 md:h-14 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}

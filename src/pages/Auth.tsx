@@ -41,7 +41,7 @@ const Auth = () => {
     <div className="min-h-screen flex items-center justify-center bg-construction-light px-4">
       <div className="w-full max-w-md bg-white rounded-xl shadow-lg p-8">
         <Link to="/" className="flex justify-center mb-6">
-          <img src={logo} alt="Lum Tech Construction logo" className="h-14 w-auto" />
+          <img src={logo} alt="Lum Tech Building Solutions logo" className="h-14 w-auto" />
         </Link>
         <h1 className="text-2xl font-poppins font-bold text-primary text-center mb-1">
           Admin Sign In
