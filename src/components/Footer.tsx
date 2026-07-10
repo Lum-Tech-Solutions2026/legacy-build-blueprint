@@ -1,6 +1,6 @@
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "@/assets/lumtech-logo.png";
+import logo from "@/assets/lumtech-logo-dark.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

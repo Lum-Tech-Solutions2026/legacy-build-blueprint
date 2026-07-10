@@ -12,7 +12,7 @@ const Hero = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-construction-primary/95 via-construction-primary/85 to-construction-primary/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-construction-primary/97 via-construction-primary/92 to-construction-primary/70"></div>
       </div>
 
       {/* Content */}
@@ -20,9 +20,9 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
           {/* Left: messaging */}
           <div className="lg:col-span-3 text-center lg:text-left">
-            <h1 className="text-4xl md:text-6xl font-poppins font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-poppins font-bold mb-6 leading-tight [text-shadow:0_2px_12px_rgba(0,0,0,0.45)]">
               Building Your Vision,{" "}
-              <span className="text-accent">One Brick</span> at a Time
+              <span className="text-construction-gold-text">One Brick</span> at a Time
             </h1>
 
             <p className="text-xl md:text-2xl font-open-sans mb-8 text-gray-100 max-w-2xl mx-auto lg:mx-0 leading-relaxed">

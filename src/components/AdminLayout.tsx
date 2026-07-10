@@ -12,7 +12,7 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import logo from "@/assets/lumtech-logo.png";
+import logo from "@/assets/lumtech-logo-dark.png";
 
 const navItems = [
   { name: "Dashboard", path: "/admin", icon: LayoutDashboard },
