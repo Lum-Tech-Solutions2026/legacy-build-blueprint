@@ -47,7 +47,7 @@ const Auth = () => {
           Admin Sign In
         </h1>
         <p className="text-center text-gray-500 font-open-sans text-sm mb-6">
-          Restricted access for authorized Lum Tech staff only
+          Restricted access for authorized Lum Tech Building Solutions staff only
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-4">

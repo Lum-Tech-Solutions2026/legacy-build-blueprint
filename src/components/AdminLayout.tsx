@@ -34,11 +34,8 @@ const AdminLayout = ({ children, title }: { children: ReactNode; title: string }
   const SidebarContent = () => (
     <>
       <div className="flex items-center gap-3 px-6 py-5 border-b border-white/10">
-        <img src={logo} alt="Lum Tech" className="h-11 w-auto" />
-        <div>
-          <p className="font-poppins font-bold text-sm leading-tight">Lum Tech</p>
-          <p className="text-xs text-gray-400 leading-tight">Admin Panel</p>
-        </div>
+        <img src={logo} alt="Lum Tech Building Solutions" className="h-12 w-auto" />
+        <p className="text-xs text-gray-400 leading-tight">Admin Panel</p>
       </div>
       <nav className="flex-1 px-3 py-4 space-y-1">
         {navItems.map((item) => {
@@ -91,7 +88,7 @@ const AdminLayout = ({ children, title }: { children: ReactNode; title: string }
       {/* Mobile top bar + drawer */}
       <div className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-primary text-white flex items-center justify-between px-4 py-3">
         <div className="flex items-center gap-2">
-          <img src={logo} alt="Lum Tech" className="h-9 w-auto" />
+          <img src={logo} alt="Lum Tech Building Solutions" className="h-9 w-auto" />
           <span className="font-poppins font-semibold text-sm">Admin</span>
         </div>
         <button onClick={() => setMobileOpen(!mobileOpen)}>

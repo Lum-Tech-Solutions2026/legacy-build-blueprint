@@ -70,7 +70,7 @@ const Blog = () => {
                       {covers[post.id] ? (
                         <img src={covers[post.id]} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center text-gray-300 font-poppins">Lum Tech</div>
+                        <div className="w-full h-full flex items-center justify-center text-gray-300 font-poppins text-sm text-center px-2">Lum Tech Building Solutions</div>
                       )}
                     </div>
                     <div className="p-6">
