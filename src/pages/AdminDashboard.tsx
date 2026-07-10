@@ -185,7 +185,7 @@ const AdminDashboard = () => {
               <XAxis dataKey="date" tick={{ fontSize: 11 }} interval={4} />
               <YAxis allowDecimals={false} tick={{ fontSize: 11 }} />
               <Tooltip />
-              <Line type="monotone" dataKey="count" stroke="hsl(201 100% 49%)" strokeWidth={2} dot={false} />
+              <Line type="monotone" dataKey="count" stroke="hsl(38 52% 39%)" strokeWidth={2} dot={false} />
             </LineChart>
           </ResponsiveContainer>
         </div>

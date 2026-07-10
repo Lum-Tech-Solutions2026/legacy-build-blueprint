@@ -49,7 +49,7 @@ const Hero = () => {
             <Button
               asChild
               size="lg"
-              className="hidden lg:inline-flex bg-accent hover:bg-accent/90 text-accent-foreground font-poppins font-bold text-lg px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-gold-glow group"
+              className="hidden lg:inline-flex bg-gradient-accent hover:opacity-90 text-accent-foreground font-poppins font-bold text-lg px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-gold-glow group"
             >
               <Link to="/contact">
                 Request a Quote

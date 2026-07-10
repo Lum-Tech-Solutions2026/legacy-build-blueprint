@@ -9,53 +9,53 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Lum Tech Construction Design System */
-    --background: 0 0% 100%;
-    --foreground: 215 25% 20%;
+    --background: 40 20% 99%;
+    --foreground: 214 19% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 20%;
+    --card-foreground: 214 19% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 20%;
+    --popover-foreground: 214 19% 15%;
 
-    /* Primary: Deep Navy Blue (#0A1F44) */
+    /* Primary: Deep Navy (matches brand logo) */
     --primary: 212 55% 9%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary: Light Gray Background */
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 215 25% 20%;
+    /* Secondary: Warm ivory, not flat gray */
+    --secondary: 40 22% 95%;
+    --secondary-foreground: 214 19% 15%;
 
     /* Muted tones */
-    --muted: 0 0% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 40 20% 95%;
+    --muted-foreground: 215 16% 42%;
 
-    /* Accent: Emerald Green (Lum Tech brand) */
-    --accent: 201 100% 49%;
+    /* Accent: Brushed Brass/Gold — premium construction signature */
+    --accent: 38 52% 39%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 214 70% 16%;
+    --border: 40 12% 88%;
+    --input: 40 12% 88%;
+    --ring: 212 55% 9%;
 
     --radius: 0.75rem;
 
     /* Custom design tokens */
     --construction-primary: 212 55% 9%;
-    --construction-gold: 201 100% 49%;
-    --construction-light: 0 0% 96%;
-    --construction-text: 215 25% 20%;
+    --construction-gold: 38 52% 39%;
+    --construction-light: 40 22% 95%;
+    --construction-text: 214 19% 15%;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(212 55% 9% / 0.92), hsl(212 55% 9% / 0.75));
-    --gradient-accent: linear-gradient(135deg, hsl(193 100% 50%), hsl(211 100% 46%));
+    --gradient-hero: linear-gradient(135deg, hsl(212 55% 9% / 0.94), hsl(212 55% 12% / 0.8));
+    --gradient-accent: linear-gradient(135deg, hsl(38 42% 57%), hsl(37 55% 30%));
     
     /* Shadows */
-    --shadow-construction: 0 10px 30px -10px hsl(212 55% 9% / 0.3);
-    --shadow-gold-glow: 0 0 40px hsl(201 100% 49% / 0.25);
+    --shadow-construction: 0 10px 30px -10px hsl(212 55% 9% / 0.35);
+    --shadow-gold-glow: 0 0 40px hsl(38 52% 39% / 0.3);
     
     /* Animations */
     --transition-construction: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

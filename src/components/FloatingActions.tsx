@@ -21,7 +21,7 @@ const FloatingActions = () => {
           <div className="flex flex-col gap-3 animate-in fade-in slide-in-from-bottom-4 duration-200">
             <button
               onClick={() => setQuoteOpen(true)}
-              className="flex items-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground pl-4 pr-5 py-3 rounded-full shadow-lg font-poppins font-semibold text-sm transition-transform hover:scale-105"
+              className="flex items-center gap-2 bg-gradient-accent hover:opacity-90 text-accent-foreground pl-4 pr-5 py-3 rounded-full shadow-gold-glow font-poppins font-semibold text-sm transition-transform hover:scale-105"
             >
               <ClipboardList className="h-5 w-5" />
               Get a Free Quote

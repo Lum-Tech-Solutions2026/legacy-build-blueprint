@@ -124,7 +124,7 @@ const QuoteForm = ({ source, compact = false, onSuccess }: QuoteFormProps) => {
       <Button
         type="submit"
         disabled={submitting}
-        className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-poppins font-semibold"
+        className="w-full bg-gradient-accent hover:opacity-90 text-accent-foreground font-poppins font-semibold shadow-gold-glow"
       >
         {submitting ? <Loader2 className="mr-2 h-5 w-5 animate-spin" /> : <Send className="mr-2 h-5 w-5" />}
         Get My Free Quote

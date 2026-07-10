@@ -167,7 +167,7 @@ const Contact = () => {
                     <Button 
                       type="submit" 
                       disabled={submitting}
-                      className="w-full bg-accent hover:bg-accent/90 text-white font-poppins font-semibold py-3"
+                      className="w-full bg-gradient-accent hover:opacity-90 text-white font-poppins font-semibold py-3 shadow-gold-glow"
                     >
                       {submitting ? <Loader2 className="mr-2 h-5 w-5 animate-spin" /> : <Send className="mr-2 h-5 w-5" />}
                       {submitting ? "Sending..." : "Send Message"}
