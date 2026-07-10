@@ -106,6 +106,10 @@ const Footer = () => {
             <span className="text-accent font-poppins font-semibold text-sm">NHBRC Registered</span>
             <span className="text-gray-300 text-sm">•</span>
             <span className="text-gray-300 font-open-sans text-sm">Quality Guaranteed</span>
+            <span className="text-gray-300 text-sm">•</span>
+            <Link to="/auth" className="text-gray-400 hover:text-accent transition-colors font-open-sans text-xs">
+              Admin Login
+            </Link>
           </div>
         </div>
       </div>
