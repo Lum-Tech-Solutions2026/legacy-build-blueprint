@@ -6,6 +6,7 @@ import { getMediaUrl } from "@/lib/media";
 import { Loader2, Play, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 
 interface Item {
   id: string;
@@ -53,6 +54,11 @@ const Portfolio = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Our Portfolio"
+        description="Browse completed residential and commercial construction and renovation projects by Lum Tech Building Solutions in KZN."
+        path="/portfolio"
+      />
       <Header />
       <main>
         <section className="bg-primary text-white py-20">

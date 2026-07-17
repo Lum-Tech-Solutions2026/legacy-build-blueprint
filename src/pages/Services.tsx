@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Home, Building, Hammer, Shield, Palette, Ruler, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 
 const Services = () => {
   const services = [
@@ -94,6 +95,11 @@ const Services = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Our Services"
+        description="Residential and commercial construction services including custom builds, renovations, and project management in Pietermaritzburg, KZN."
+        path="/services"
+      />
       <Header />
       <main>
         {/* Hero Section */}

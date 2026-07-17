@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { supabase } from "@/integrations/supabase/client";
 import { getMediaUrl } from "@/lib/media";
 import { Loader2, Calendar, ArrowRight } from "lucide-react";
+import SEO from "@/components/SEO";
 
 interface Post {
   id: string;
@@ -40,6 +41,11 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Blog"
+        description="Insights, project updates, and construction tips from Lum Tech Building Solutions."
+        path="/blog"
+      />
       <Header />
       <main>
         <section className="bg-primary text-white py-20">

@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { CheckCircle, Award, Users, Clock, Target, Heart, Eye } from "lucide-react";
+import SEO from "@/components/SEO";
 
 const About = () => {
   const values = [
@@ -23,6 +24,11 @@ const About = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="About Us"
+        description="Learn about Lum Tech Building Solutions - over 10 years delivering quality residential and commercial construction in Pietermaritzburg, KZN."
+        path="/about"
+      />
       <Header />
       <main>
         {/* Hero Section */}
