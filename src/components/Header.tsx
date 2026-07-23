@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone, Mail } from "lucide-react";
+import { Menu, X, Phone, Mail, Facebook } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/lumtech-logo.png";
 
@@ -32,6 +32,15 @@ const Header = () => {
             <a href="mailto:projects@lumtechsolutions.co.za" className="flex items-center space-x-2 hover:text-accent transition-colors">
               <Mail className="h-4 w-4" />
               <span>projects@lumtechsolutions.co.za</span>
+            </a>
+            <a
+              href="https://facebook.com/Lumtechbuildingsolutions"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Lum Tech Building Solutions on Facebook"
+              className="flex items-center space-x-2 hover:text-accent transition-colors"
+            >
+              <Facebook className="h-4 w-4" />
             </a>
           </div>
           <div className="text-sm font-medium">

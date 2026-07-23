@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Phone, Mail, MapPin, Clock, Send, Loader2, CheckCircle2 } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, Loader2, CheckCircle2, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -295,6 +295,15 @@ const Contact = () => {
                       >
                         <Mail className="h-5 w-5" />
                         <span className="font-poppins font-semibold">Send Email</span>
+                      </a>
+                      <a
+                        href="https://facebook.com/Lumtechbuildingsolutions"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center space-x-2 w-full border-2 border-primary text-primary hover:bg-primary hover:text-white py-3 rounded-lg transition-colors"
+                      >
+                        <Facebook className="h-5 w-5" />
+                        <span className="font-poppins font-semibold">Follow on Facebook</span>
                       </a>
                     </div>
                   </div>

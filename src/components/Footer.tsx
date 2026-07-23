@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Facebook } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/lumtech-logo-dark.png";
 
@@ -22,6 +22,16 @@ const Footer = () => {
               Our mission: to build lasting structures and lasting relationships through quality
               craftsmanship, integrity, and exceptional service.
             </p>
+            <a
+              href="https://facebook.com/Lumtechbuildingsolutions"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Lum Tech Building Solutions on Facebook"
+              className="inline-flex items-center space-x-2 text-gray-300 hover:text-accent transition-colors font-open-sans"
+            >
+              <Facebook className="h-5 w-5" />
+              <span>Follow us on Facebook</span>
+            </a>
           </div>
 
           {/* Quick Links */}
