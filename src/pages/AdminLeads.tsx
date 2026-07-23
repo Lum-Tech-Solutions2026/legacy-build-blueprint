@@ -43,6 +43,7 @@ const AdminLeads = () => {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<string>("all");
+  const [sourceFilter, setSourceFilter] = useState<string>("all");
   const [search, setSearch] = useState("");
   const [converting, setConverting] = useState<Lead | null>(null);
   const [convertBudget, setConvertBudget] = useState("");
@@ -64,9 +65,24 @@ const AdminLeads = () => {
 
   useEffect(() => { load(); }, []);
 
+  const sources = useMemo(() => {
+    return Array.from(new Set(leads.map((l) => l.source))).sort();
+  }, [leads]);
+
+  const sourceBreakdown = useMemo(() => {
+    const counts: Record<string, { total: number; won: number }> = {};
+    leads.forEach((l) => {
+      counts[l.source] ??= { total: 0, won: 0 };
+      counts[l.source].total += 1;
+      if (l.status === "won") counts[l.source].won += 1;
+    });
+    return Object.entries(counts).sort((a, b) => b[1].total - a[1].total);
+  }, [leads]);
+
   const filtered = useMemo(() => {
     return leads.filter((l) => {
       if (filter !== "all" && l.status !== filter) return false;
+      if (sourceFilter !== "all" && l.source !== sourceFilter) return false;
       if (search) {
         const q = search.toLowerCase();
         return (

@@ -305,6 +305,162 @@ export type Database = {
         }
         Relationships: []
       }
+      testimonials: {
+        Row: {
+          id: string
+          client_name: string | null
+          company_name: string | null
+          rating: number | null
+          comment: string | null
+          photo_url: string | null
+          approved: boolean | null
+          created_at: string | null
+        }
+        Insert: {
+          id?: string
+          client_name?: string | null
+          company_name?: string | null
+          rating?: number | null
+          comment?: string | null
+          photo_url?: string | null
+          approved?: boolean | null
+          created_at?: string | null
+        }
+        Update: {
+          id?: string
+          client_name?: string | null
+          company_name?: string | null
+          rating?: number | null
+          comment?: string | null
+          photo_url?: string | null
+          approved?: boolean | null
+          created_at?: string | null
+        }
+        Relationships: []
+      }
+      tasks: {
+        Row: {
+          id: string
+          lead_id: string | null
+          project_id: string | null
+          type: string
+          title: string
+          due_at: string
+          status: string
+          notes: string | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          lead_id?: string | null
+          project_id?: string | null
+          type?: string
+          title: string
+          due_at?: string
+          status?: string
+          notes?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          lead_id?: string | null
+          project_id?: string | null
+          type?: string
+          title?: string
+          due_at?: string
+          status?: string
+          notes?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      message_templates: {
+        Row: {
+          id: string
+          key: string
+          channel: string
+          name: string
+          subject: string | null
+          body: string
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          key: string
+          channel: string
+          name: string
+          subject?: string | null
+          body: string
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          key?: string
+          channel?: string
+          name?: string
+          subject?: string | null
+          body?: string
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      automation_log: {
+        Row: {
+          id: string
+          lead_id: string | null
+          quote_id: string | null
+          step: string
+          channel: string | null
+          status: string
+          detail: string | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          lead_id?: string | null
+          quote_id?: string | null
+          step: string
+          channel?: string | null
+          status: string
+          detail?: string | null
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          lead_id?: string | null
+          quote_id?: string | null
+          step?: string
+          channel?: string | null
+          status?: string
+          detail?: string | null
+          created_at?: string
+        }
+        Relationships: []
+      }
+      app_settings: {
+        Row: {
+          key: string
+          value: string | null
+          updated_at: string
+        }
+        Insert: {
+          key: string
+          value?: string | null
+          updated_at?: string
+        }
+        Update: {
+          key?: string
+          value?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

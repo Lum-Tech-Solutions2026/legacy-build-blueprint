@@ -19,7 +19,8 @@ const Contact = () => {
     email: "",
     phone: "",
     subject: searchParams.get("service") || "",
-    message: ""
+    message: "",
+    heardFrom: ""
   });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -42,7 +43,7 @@ const Contact = () => {
         phone: formData.phone || null,
         project_type: formData.subject || null,
         message: formData.message || null,
-        source: "contact_page",
+        source: formData.heardFrom || "contact_page",
       });
       if (error) throw error;
       setSubmitted(true);
@@ -156,6 +157,26 @@ const Contact = () => {
                           className="font-open-sans"
                         />
                       </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="heardFrom" className="font-poppins font-medium">How did you hear about us?</Label>
+                      <select
+                        id="heardFrom"
+                        name="heardFrom"
+                        value={formData.heardFrom}
+                        onChange={handleInputChange}
+                        className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm font-open-sans ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      >
+                        <option value="">Select an option (optional)</option>
+                        <option value="google_search">Google Search</option>
+                        <option value="facebook">Facebook</option>
+                        <option value="instagram">Instagram</option>
+                        <option value="word_of_mouth">Word of Mouth / Referral</option>
+                        <option value="previous_client">Previous Client</option>
+                        <option value="drive_by_signage">Site Signage / Driving Past</option>
+                        <option value="other">Other</option>
+                      </select>
                     </div>
 
                     <div className="space-y-2">
