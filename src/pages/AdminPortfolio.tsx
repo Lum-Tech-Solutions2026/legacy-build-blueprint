@@ -111,7 +111,7 @@ const AdminPortfolio = () => {
             <Input id="media-file" type="file" accept="image/*,video/*" onChange={(e) => setFile(e.target.files?.[0] ?? null)} required />
           </div>
           <Button type="submit" disabled={saving} className="bg-accent hover:bg-accent/90 text-accent-foreground font-poppins font-semibold">
-            {saving && <Loader2 className="mr-2 h-4 w-4 animate-spin" />} Add Project
+            {saving && <Loader2 className="mr-2 h-4 w-4 animate-spin" />} {saving ? "Optimizing & Uploading…" : "Add Project"}
           </Button>
         </form>
 
