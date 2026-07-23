@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Home, Building, Hammer, Shield, Palette, Ruler, ArrowRight } from "lucide-react";
+import { Home, Building, Hammer, Shield, Palette, Ruler, ArrowRight, ClipboardList } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
@@ -9,6 +9,7 @@ const Services = () => {
   const services = [
     {
       icon: <Home className="h-16 w-16 text-accent" />,
+      slug: "residential-construction",
       title: "Residential Construction",
       description: "New homes built to your specifications with expert craftsmanship and attention to detail. From foundation to finish, we create the home of your dreams.",
       features: [
@@ -23,6 +24,7 @@ const Services = () => {
     },
     {
       icon: <Building className="h-16 w-16 text-accent" />,
+      slug: "commercial-construction",
       title: "Commercial Construction",
       description: "Offices, shops, and industrial spaces designed for functionality and durability. We understand the unique requirements of commercial projects.",
       features: [
@@ -37,6 +39,7 @@ const Services = () => {
     },
     {
       icon: <Hammer className="h-16 w-16 text-accent" />,
+      slug: "home-renovations-extensions",
       title: "Home Renovations & Extensions",
       description: "Transform your existing property with our comprehensive renovation services. Breathe new life into your space while adding value to your home.",
       features: [
@@ -51,6 +54,7 @@ const Services = () => {
     },
     {
       icon: <Shield className="h-16 w-16 text-accent" />,
+      slug: "roofing-waterproofing",
       title: "Roofing & Waterproofing",
       description: "Long-lasting protection from the elements with professional roofing solutions. Quality materials and expert installation ensure years of reliable protection.",
       features: [
@@ -65,6 +69,7 @@ const Services = () => {
     },
     {
       icon: <Palette className="h-16 w-16 text-accent" />,
+      slug: "tiling-painting",
       title: "Tiling & Painting",
       description: "High-quality finishes for interiors and exteriors that enhance your property's appeal. Professional application ensures lasting beauty and durability.",
       features: [
@@ -79,6 +84,7 @@ const Services = () => {
     },
     {
       icon: <Ruler className="h-16 w-16 text-accent" />,
+      slug: "custom-interior-exterior-design",
       title: "Custom Interior & Exterior Design",
       description: "Tailored design solutions that reflect your personal style and preferences. From concept to completion, we bring your vision to life.",
       features: [
@@ -90,6 +96,21 @@ const Services = () => {
         "Project coordination and management"
       ],
       process: "Design projects start with understanding your lifestyle and preferences. We create detailed plans, provide visualizations, and coordinate all trades to ensure seamless execution."
+    },
+    {
+      slug: "project-management",
+      icon: <ClipboardList className="h-16 w-16 text-accent" />,
+      title: "Project Management",
+      description: "End-to-end oversight of your build from planning through handover. Whether you need full project management or support for a specific phase, we keep every trade, timeline, and budget on track.",
+      features: [
+        "Project planning and scheduling",
+        "Budget management and cost control",
+        "Subcontractor and supplier coordination",
+        "Regular progress reporting",
+        "Quality control inspections",
+        "Permit and compliance management"
+      ],
+      process: "We assign a dedicated project manager who oversees every phase of your build, coordinating trades, tracking budgets against plan, and keeping you updated with regular progress reports so there are no surprises."
     }
   ];
 
@@ -123,7 +144,7 @@ const Services = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto space-y-20">
               {services.map((service, index) => (
-                <div key={index} className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
+                <div key={index} id={service.slug} className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center scroll-mt-24 ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
                   {/* Content */}
                   <div className={`space-y-6 ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
                     <div className="flex items-center space-x-4">
@@ -154,8 +175,10 @@ const Services = () => {
                       <p className="font-open-sans text-gray-600">{service.process}</p>
                     </div>
 
-                    <Button className="bg-accent hover:bg-accent/90 text-white font-poppins font-semibold">
-                      Get Quote for {service.title}
+                    <Button asChild className="bg-accent hover:bg-accent/90 text-white font-poppins font-semibold">
+                      <Link to={`/contact?service=${encodeURIComponent(service.title)}`}>
+                        Get Quote for {service.title}
+                      </Link>
                     </Button>
                   </div>
 

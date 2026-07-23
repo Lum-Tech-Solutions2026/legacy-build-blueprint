@@ -1,44 +1,57 @@
-import { Home, Building, Hammer, Shield, Palette, Ruler } from "lucide-react";
+import { Home, Building, Hammer, Shield, Palette, Ruler, ClipboardList } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const Services = () => {
   const services = [
     {
+      slug: "residential-construction",
       icon: <Home className="h-12 w-12 text-accent" />,
       title: "Residential Construction",
       description: "New homes built to your specifications with expert craftsmanship and attention to detail.",
       features: ["Custom home design", "Foundation to finish", "Quality materials", "Professional supervision"]
     },
     {
+      slug: "commercial-construction",
       icon: <Building className="h-12 w-12 text-accent" />,
       title: "Commercial Construction",
       description: "Offices, shops, and industrial spaces designed for functionality and durability.",
       features: ["Office buildings", "Retail spaces", "Industrial facilities", "Commercial renovations"]
     },
     {
+      slug: "home-renovations-extensions",
       icon: <Hammer className="h-12 w-12 text-accent" />,
       title: "Home Renovations & Extensions",
       description: "Transform your existing property with our comprehensive renovation services.",
       features: ["Room additions", "Kitchen renovations", "Bathroom upgrades", "Structural modifications"]
     },
     {
+      slug: "roofing-waterproofing",
       icon: <Shield className="h-12 w-12 text-accent" />,
       title: "Roofing & Waterproofing",
       description: "Long-lasting protection from the elements with professional roofing solutions.",
       features: ["Roof installations", "Roof repairs", "Waterproofing", "Gutter systems"]
     },
     {
+      slug: "tiling-painting",
       icon: <Palette className="h-12 w-12 text-accent" />,
       title: "Tiling & Painting",
       description: "High-quality finishes for interiors and exteriors that enhance your property's appeal.",
       features: ["Interior painting", "Exterior painting", "Tile installation", "Decorative finishes"]
     },
     {
+      slug: "custom-interior-exterior-design",
       icon: <Ruler className="h-12 w-12 text-accent" />,
       title: "Custom Interior & Exterior Design",
       description: "Tailored design solutions that reflect your personal style and preferences.",
       features: ["Design consultation", "3D visualization", "Material selection", "Project coordination"]
+    },
+    {
+      slug: "project-management",
+      icon: <ClipboardList className="h-12 w-12 text-accent" />,
+      title: "Project Management",
+      description: "End-to-end oversight of your build from planning through handover, keeping every trade, timeline, and budget on track.",
+      features: ["Site supervision", "Budget & timeline tracking", "Subcontractor coordination", "Quality control inspections"]
     }
   ];
 
@@ -86,8 +99,8 @@ const Services = () => {
                 </div>
 
                 <div className="mt-6 pt-6 border-t border-gray-200">
-                  <Button variant="outline" className="w-full border-accent text-accent hover:bg-accent hover:text-white font-poppins font-semibold">
-                    Learn More
+                  <Button asChild variant="outline" className="w-full border-accent text-accent hover:bg-accent hover:text-white font-poppins font-semibold">
+                    <Link to={`/services#${service.slug}`}>Learn More</Link>
                   </Button>
                 </div>
               </div>
