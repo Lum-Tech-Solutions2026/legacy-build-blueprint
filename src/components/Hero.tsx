@@ -12,8 +12,8 @@ const Hero = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-construction-primary/97 via-construction-primary/95 to-construction-primary/85"></div>
-        <div className="absolute inset-0 bg-construction-primary/25"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-construction-primary/97 via-construction-primary/95 to-construction-primary/92"></div>
+        <div className="absolute inset-0 bg-construction-primary/45"></div>
       </div>
 
       {/* Content */}
@@ -26,7 +26,7 @@ const Hero = () => {
               <span className="text-construction-gold-text">One Brick</span> at a Time
             </h1>
 
-            <p className="text-xl md:text-2xl font-open-sans mb-8 text-gray-100 max-w-2xl mx-auto lg:mx-0 leading-relaxed [text-shadow:0_2px_8px_rgba(0,0,0,0.6)]">
+            <p className="text-xl md:text-2xl font-open-sans mb-8 text-white max-w-2xl mx-auto lg:mx-0 leading-relaxed [text-shadow:0_2px_10px_rgba(0,0,0,0.85),0_1px_3px_rgba(0,0,0,0.9)]">
               Over a Decade of Experience • NHBRC Registered • Quality Guaranteed
             </p>
 
@@ -59,7 +59,7 @@ const Hero = () => {
             </Button>
 
             {/* Trust Indicators */}
-            <div className="mt-12 flex flex-col md:flex-row items-center justify-center lg:justify-start space-y-4 md:space-y-0 md:space-x-8 text-gray-200">
+            <div className="mt-12 flex flex-col md:flex-row items-center justify-center lg:justify-start space-y-4 md:space-y-0 md:space-x-8 text-gray-100 [text-shadow:0_1px_6px_rgba(0,0,0,0.8)]">
               <div className="flex items-center space-x-2">
                 <div className="w-3 h-3 bg-accent rounded-full"></div>
                 <span className="font-open-sans">Over 10 Years of Experience</span>
