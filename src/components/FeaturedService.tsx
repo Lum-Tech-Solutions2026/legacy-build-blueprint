@@ -30,15 +30,15 @@ const FeaturedService = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4">
         <div className="max-w-3xl text-white">
-          <div className="inline-flex items-center gap-2 bg-accent/20 border border-accent/40 text-accent-foreground rounded-full px-4 py-1.5 mb-6">
-            <Star className="h-4 w-4 fill-accent text-accent" />
-            <span className="font-poppins font-semibold text-sm tracking-wide">
+          <div className="inline-flex items-center gap-2 bg-gradient-accent text-accent-foreground rounded-full px-5 py-2.5 mb-6 shadow-gold-glow animate-pulse">
+            <Star className="h-5 w-5 fill-accent-foreground text-accent-foreground" />
+            <span className="font-poppins font-bold text-sm md:text-base tracking-wide uppercase">
               Most Requested Service
             </span>
           </div>
 
-          <h2 className="text-3xl md:text-5xl font-poppins font-bold mb-6 leading-tight [text-shadow:0_2px_12px_rgba(0,0,0,0.6)]">
-            Home Renovations &amp; Extensions
+          <h2 className="text-4xl md:text-6xl font-poppins font-extrabold mb-6 leading-tight [text-shadow:0_2px_16px_rgba(0,0,0,0.75)]">
+            Home Renovations &amp; <span className="text-construction-gold-text">Extensions</span>
           </h2>
 
           <p className="font-open-sans text-gray-100 leading-relaxed mb-8 text-lg [text-shadow:0_1px_6px_rgba(0,0,0,0.8)]">
