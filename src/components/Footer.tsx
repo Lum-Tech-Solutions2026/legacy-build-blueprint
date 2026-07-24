@@ -113,27 +113,27 @@ const Footer = () => {
             © {currentYear} Lum Tech Building Solutions. All rights reserved.
           </p>
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
-            <picture className="flex h-11 w-20 items-center justify-center rounded bg-white p-1">
+            <picture>
               <source srcSet={cidbLogoWebp} type="image/webp" />
               <img
                 src={cidbLogoPng}
                 alt="CIDB - Construction Industry Development Board Registered"
-                width={87}
-                height={40}
+                width={100}
+                height={50}
                 loading="lazy"
-                className="h-full w-full object-contain"
+                className="h-[42px] w-auto rounded"
               />
             </picture>
             <span className="text-gray-300 text-sm">•</span>
-            <picture className="flex h-11 w-20 items-center justify-center rounded">
+            <picture>
               <source srcSet={nhbrcLogoWebp} type="image/webp" />
               <img
                 src={nhbrcLogoPng}
                 alt="NHBRC - National Home Builders Registration Council Registered"
-                width={53}
-                height={40}
+                width={100}
+                height={50}
                 loading="lazy"
-                className="h-full w-full object-contain"
+                className="h-[42px] w-auto rounded"
               />
             </picture>
             <span className="text-gray-300 text-sm">•</span>
