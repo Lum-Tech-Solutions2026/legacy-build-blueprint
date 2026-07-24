@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import logo from "@/assets/lumtech-logo-dark.png";
 import cidbLogoWebp from "@/assets/cidb-logo.webp";
 import cidbLogoPng from "@/assets/cidb-logo.png";
+import nhbrcLogoWebp from "@/assets/nhbrc-logo.webp";
+import nhbrcLogoPng from "@/assets/nhbrc-logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -123,7 +125,17 @@ const Footer = () => {
               />
             </picture>
             <span className="text-gray-300 text-sm">•</span>
-            <span className="text-accent font-poppins font-semibold text-sm">NHBRC Registered</span>
+            <picture>
+              <source srcSet={nhbrcLogoWebp} type="image/webp" />
+              <img
+                src={nhbrcLogoPng}
+                alt="NHBRC - National Home Builders Registration Council Registered"
+                width={53}
+                height={40}
+                loading="lazy"
+                className="h-10 w-auto rounded"
+              />
+            </picture>
             <span className="text-gray-300 text-sm">•</span>
             <span className="text-gray-300 font-open-sans text-sm">Quality Guaranteed</span>
           </div>
