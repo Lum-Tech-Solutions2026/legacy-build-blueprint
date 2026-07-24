@@ -113,7 +113,7 @@ const Footer = () => {
             © {currentYear} Lum Tech Building Solutions. All rights reserved.
           </p>
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
-            <picture>
+            <picture className="flex h-11 w-20 items-center justify-center rounded bg-white p-1">
               <source srcSet={cidbLogoWebp} type="image/webp" />
               <img
                 src={cidbLogoPng}
@@ -121,11 +121,11 @@ const Footer = () => {
                 width={87}
                 height={40}
                 loading="lazy"
-                className="h-10 w-auto rounded bg-white p-1"
+                className="h-full w-full object-contain"
               />
             </picture>
             <span className="text-gray-300 text-sm">•</span>
-            <picture>
+            <picture className="flex h-11 w-20 items-center justify-center rounded">
               <source srcSet={nhbrcLogoWebp} type="image/webp" />
               <img
                 src={nhbrcLogoPng}
@@ -133,7 +133,7 @@ const Footer = () => {
                 width={53}
                 height={40}
                 loading="lazy"
-                className="h-10 w-auto rounded"
+                className="h-full w-full object-contain"
               />
             </picture>
             <span className="text-gray-300 text-sm">•</span>
