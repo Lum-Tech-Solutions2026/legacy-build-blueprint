@@ -1,6 +1,8 @@
 import { Phone, Mail, MapPin, Clock, Facebook } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/lumtech-logo-dark.png";
+import cidbLogoWebp from "@/assets/cidb-logo.webp";
+import cidbLogoPng from "@/assets/cidb-logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -109,6 +111,18 @@ const Footer = () => {
             © {currentYear} Lum Tech Building Solutions. All rights reserved.
           </p>
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
+            <picture>
+              <source srcSet={cidbLogoWebp} type="image/webp" />
+              <img
+                src={cidbLogoPng}
+                alt="CIDB - Construction Industry Development Board Registered"
+                width={87}
+                height={40}
+                loading="lazy"
+                className="h-10 w-auto rounded bg-white p-1"
+              />
+            </picture>
+            <span className="text-gray-300 text-sm">•</span>
             <span className="text-accent font-poppins font-semibold text-sm">NHBRC Registered</span>
             <span className="text-gray-300 text-sm">•</span>
             <span className="text-gray-300 font-open-sans text-sm">Quality Guaranteed</span>
