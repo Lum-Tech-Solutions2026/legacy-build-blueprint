@@ -71,7 +71,6 @@ const Contact = () => {
               <h1 className="text-4xl md:text-6xl font-poppins font-bold mb-6">
                 Contact Us
               </h1>
-              <div className="w-24 h-1 bg-accent mx-auto mb-8"></div>
               <p className="text-xl font-open-sans text-gray-200 leading-relaxed">
                 Ready to start your construction project? Get in touch with our expert team today. 
                 We're here to help bring your vision to life.
