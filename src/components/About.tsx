@@ -43,17 +43,23 @@ const About = () => {
             <div className="space-y-8">
               <div>
                 <h3 className="text-2xl font-poppins font-semibold text-primary mb-4">
-                  Our Commitment to Excellence
+                  Why Clients Choose Lum Tech Building Solutions
                 </h3>
+                <p className="font-open-sans text-gray-600 leading-relaxed mb-4">
+                  When you appoint Lum Tech Building Solutions, you choose a construction partner
+                  committed to professionalism from consultation through project completion. We
+                  focus on delivering quality workmanship, clear communication, responsible project
+                  management and solutions tailored to each client's vision and budget.
+                </p>
                 <p className="font-open-sans text-gray-600 leading-relaxed">
-                  Our skilled team is committed to turning your dream property into reality. We understand that building 
-                  or renovating a home is one of life's biggest investments, which is why we approach every project with 
-                  meticulous attention to detail and unwavering dedication to quality.
+                  Our objective is not simply to complete projects — it is to build lasting
+                  relationships through reliable service, attention to detail and results that
+                  stand the test of time.
                 </p>
               </div>
 
               <div className="space-y-4">
-                <h4 className="text-xl font-poppins font-semibold text-primary mb-4">Why Choose Us?</h4>
+                <h4 className="text-xl font-poppins font-semibold text-primary mb-4">What Sets Us Apart</h4>
                 <div className="space-y-3">
                   <div className="flex items-start space-x-3">
                     <CheckCircle className="h-6 w-6 text-accent mt-0.5 flex-shrink-0" />

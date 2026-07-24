@@ -1,9 +1,12 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
+import Credentials from "@/components/Credentials";
 import About from "@/components/About";
+import Compliance from "@/components/Compliance";
 import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
+import BottomCTA from "@/components/BottomCTA";
 import SEO from "@/components/SEO";
 
 const Index = () => {
@@ -17,9 +20,12 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
+        <Credentials />
         <About />
+        <Compliance />
         <Services />
         <Testimonials />
+        <BottomCTA />
       </main>
       <Footer />
     </div>

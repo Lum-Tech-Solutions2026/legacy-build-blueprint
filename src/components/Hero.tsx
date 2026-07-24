@@ -22,13 +22,36 @@ const Hero = () => {
           {/* Left: messaging */}
           <div className="lg:col-span-3 text-center lg:text-left">
             <h1 className="text-4xl md:text-6xl font-poppins font-bold mb-8 leading-tight [text-shadow:0_2px_12px_rgba(0,0,0,0.6)]">
-              Building Your Vision,{" "}
-              <span className="text-construction-gold-text">One Brick</span> at a Time
+              Building South Africa with{" "}
+              <span className="text-construction-gold-text">Quality, Integrity</span> and Professional Excellence
             </h1>
 
             <p className="text-xl md:text-2xl font-open-sans mb-8 text-white max-w-2xl mx-auto lg:mx-0 leading-relaxed [text-shadow:0_2px_10px_rgba(0,0,0,0.85),0_1px_3px_rgba(0,0,0,0.9)]">
-              Over a Decade of Experience • NHBRC Registered • Quality Guaranteed
+              We deliver residential, commercial and renovation projects with a commitment to quality
+              workmanship, professional project management and full compliance with South African
+              building standards.
             </p>
+
+            <div className="flex flex-col md:flex-row items-center justify-center lg:justify-start gap-4 mb-10">
+              <Button
+                asChild
+                size="lg"
+                className="bg-gradient-accent hover:opacity-90 text-accent-foreground font-poppins font-bold text-lg px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-gold-glow group w-full md:w-auto"
+              >
+                <Link to="/contact">
+                  Request a Free Quote
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="bg-white/10 hover:bg-white/20 border-white/60 text-white font-poppins font-semibold text-lg px-8 py-4 rounded-lg backdrop-blur-sm w-full md:w-auto"
+              >
+                <Link to="/portfolio">View Our Projects</Link>
+              </Button>
+            </div>
 
             <div className="flex flex-col md:flex-row items-center justify-center lg:justify-start gap-4 mb-10">
               <a
@@ -46,17 +69,6 @@ const Hero = () => {
                 <span className="font-poppins font-medium">projects@lumtechsolutions.co.za</span>
               </a>
             </div>
-
-            <Button
-              asChild
-              size="lg"
-              className="hidden lg:inline-flex bg-gradient-accent hover:opacity-90 text-accent-foreground font-poppins font-bold text-lg px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-gold-glow group"
-            >
-              <Link to="/contact">
-                Request a Quote
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
 
             {/* Trust Indicators */}
             <div className="mt-12 flex flex-col md:flex-row items-center justify-center lg:justify-start space-y-4 md:space-y-0 md:space-x-8 text-gray-100 [text-shadow:0_1px_6px_rgba(0,0,0,0.8)]">
