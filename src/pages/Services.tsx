@@ -43,12 +43,16 @@ const Services = () => {
       title: "Home Renovations & Extensions",
       description: "Transform your existing property with our comprehensive renovation services. Breathe new life into your space while adding value to your home.",
       features: [
-        "Room additions and extensions",
-        "Kitchen and bathroom renovations",
-        "Living space remodeling",
-        "Structural modifications",
-        "Garage conversions",
-        "Outdoor living spaces"
+        "Home extensions",
+        "Kitchen renovations",
+        "Bathroom renovations",
+        "Interior & exterior upgrades",
+        "Ceiling & drywall installation",
+        "Tiling & flooring",
+        "Painting & decorative finishes",
+        "Roofing repairs & replacement",
+        "Structural alterations",
+        "Complete home makeovers"
       ],
       process: "Renovations require careful planning to minimize disruption. We work around your schedule, provide temporary solutions when needed, and ensure your home remains livable throughout the process."
     },

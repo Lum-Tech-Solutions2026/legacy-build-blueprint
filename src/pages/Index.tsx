@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import Credentials from "@/components/Credentials";
 import About from "@/components/About";
 import Compliance from "@/components/Compliance";
+import FeaturedService from "@/components/FeaturedService";
 import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
 import BottomCTA from "@/components/BottomCTA";
@@ -23,6 +24,7 @@ const Index = () => {
         <Credentials />
         <About />
         <Compliance />
+        <FeaturedService />
         <Services />
         <Testimonials />
         <BottomCTA />
