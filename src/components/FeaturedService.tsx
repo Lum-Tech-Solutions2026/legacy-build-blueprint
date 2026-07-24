@@ -1,7 +1,9 @@
 import { Star, CheckCircle2, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import renovationImage from "@/assets/modern-home.jpg";
+
+const renovationImage =
+  "https://tugfihcysrphyxadpcrz.supabase.co/storage/v1/object/public/media/3deb17a3-d91e-4fa5-a20a-7812e3b3bac3.jpg";
 
 const FeaturedService = () => {
   const renovationServices = [
