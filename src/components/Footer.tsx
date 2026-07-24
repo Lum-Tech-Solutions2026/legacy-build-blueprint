@@ -16,7 +16,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <img src={logo} alt="Lum Tech Building Solutions logo" className="h-16 w-auto" />
+              <img src={logo} alt="Lum Tech Building Solutions logo" className="h-12 w-auto" />
             </div>
             <p className="text-gray-300 font-open-sans">
               Over 10 years of experience in delivering exceptional building services. 
