@@ -31,7 +31,7 @@ All colors MUST be HSL.
     --muted-foreground: 215 16% 42%;
 
     /* Accent: Brushed Brass/Gold — premium construction signature */
-    --accent: 38 52% 39%;
+    --accent: 210 90% 38%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -45,19 +45,19 @@ All colors MUST be HSL.
 
     /* Custom design tokens */
     --construction-primary: 212 55% 9%;
-    --construction-gold: 38 52% 39%;
-    --construction-gold-text: 39 56% 64%;
+    --construction-gold: 210 90% 38%;
+    --construction-gold-text: 210 90% 68%;
     --construction-blue: 210 98% 51%;
     --construction-light: 40 22% 95%;
     --construction-text: 214 19% 15%;
     
     /* Gradients */
     --gradient-hero: linear-gradient(120deg, hsl(212 55% 6% / 0.97), hsl(212 55% 9% / 0.88));
-    --gradient-accent: linear-gradient(135deg, hsl(38 42% 57%), hsl(37 55% 30%));
+    --gradient-accent: linear-gradient(135deg, hsl(210 90% 55%), hsl(210 90% 32%));
     
     /* Shadows */
     --shadow-construction: 0 10px 30px -10px hsl(212 55% 9% / 0.35);
-    --shadow-gold-glow: 0 0 40px hsl(38 52% 39% / 0.3);
+    --shadow-gold-glow: 0 0 40px hsl(210 90% 38% / 0.3);
     
     /* Animations */
     --transition-construction: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
