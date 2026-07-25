@@ -9,6 +9,7 @@ const Compliance = () => {
           <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6">
             Committed to Quality and Regulatory Compliance
           </h2>
+          <div className="w-24 h-1 bg-construction-blue mx-auto mb-8"></div>
           <p className="font-open-sans text-gray-200 leading-relaxed mb-6 text-lg">
             At Lum Tech Building Solutions, we believe that exceptional construction begins with
             proper planning, skilled workmanship and strict adherence to recognised industry

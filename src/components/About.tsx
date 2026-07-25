@@ -29,6 +29,7 @@ const About = () => {
             <h2 className="text-4xl md:text-5xl font-poppins font-bold text-primary mb-6">
               Welcome to Lum Tech Building Solutions
             </h2>
+            <div className="w-24 h-1 bg-construction-blue mx-auto mb-8"></div>
             <p className="text-lg font-open-sans text-gray-600 max-w-4xl mx-auto leading-relaxed">
               We are a trusted construction company based in Pietermaritzburg, KwaZulu-Natal, with more than 10 years 
               of experience in delivering exceptional building services. As an NHBRC registered builder, we guarantee 

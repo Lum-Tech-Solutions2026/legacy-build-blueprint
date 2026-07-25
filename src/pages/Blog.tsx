@@ -51,6 +51,7 @@ const Blog = () => {
         <section className="bg-primary text-white py-20">
           <div className="container mx-auto px-4 text-center max-w-4xl">
             <h1 className="text-4xl md:text-6xl font-poppins font-bold mb-6">Our Blog</h1>
+            <div className="w-24 h-1 bg-construction-blue mx-auto mb-8" />
             <p className="text-xl font-open-sans text-gray-200">
               Insights, project stories, and construction tips from the Lum Tech Building Solutions team.
             </p>

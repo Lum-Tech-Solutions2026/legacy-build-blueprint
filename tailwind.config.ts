@@ -60,6 +60,7 @@ export default {
 					primary: 'hsl(var(--construction-primary))',
 					gold: 'hsl(var(--construction-gold))',
 					'gold-text': 'hsl(var(--construction-gold-text))',
+					blue: 'hsl(var(--construction-blue))',
 					light: 'hsl(var(--construction-light))',
 					text: 'hsl(var(--construction-text))',
 				},

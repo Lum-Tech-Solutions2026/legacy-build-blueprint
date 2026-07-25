@@ -34,6 +34,7 @@ const Testimonials = () => {
             <h2 className="text-4xl md:text-5xl font-poppins font-bold text-primary mb-6">
               Client Testimonials
             </h2>
+            <div className="w-24 h-1 bg-construction-blue mx-auto mb-8"></div>
             <p className="text-lg font-open-sans text-gray-600 max-w-3xl mx-auto">
               Don't just take our word for it. Here's what our satisfied clients have to say about our work.
             </p>

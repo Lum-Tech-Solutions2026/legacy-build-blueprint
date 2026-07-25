@@ -38,6 +38,7 @@ const About = () => {
               <h1 className="text-4xl md:text-6xl font-poppins font-bold mb-6">
                 About Lum Tech Building Solutions
               </h1>
+              <div className="w-24 h-1 bg-construction-blue mx-auto mb-8"></div>
               <p className="text-xl font-open-sans text-gray-200 leading-relaxed">
                 Building dreams, creating legacies, and serving the KwaZulu-Natal community 
                 with exceptional construction services for over a decade.
@@ -113,6 +114,7 @@ const About = () => {
                 <h2 className="text-3xl md:text-4xl font-poppins font-bold text-primary mb-6">
                   Our Vision &amp; Mission
                 </h2>
+                <div className="w-24 h-1 bg-construction-blue mx-auto" />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="bg-construction-light p-10 rounded-lg border-t-4 border-accent">
@@ -148,6 +150,7 @@ const About = () => {
                 <h2 className="text-3xl md:text-4xl font-poppins font-bold text-primary mb-6">
                   Our Values
                 </h2>
+                <div className="w-24 h-1 bg-construction-blue mx-auto mb-8"></div>
                 <p className="text-lg font-open-sans text-gray-600 max-w-3xl mx-auto">
                   These core values guide everything we do and every decision we make.
                 </p>

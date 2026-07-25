@@ -134,6 +134,7 @@ const Services = () => {
               <h1 className="text-4xl md:text-6xl font-poppins font-bold mb-6">
                 Our Services
               </h1>
+              <div className="w-24 h-1 bg-construction-blue mx-auto mb-8"></div>
               <p className="text-xl font-open-sans text-gray-200 leading-relaxed">
                 Comprehensive construction and renovation solutions tailored to your needs. 
                 Quality workmanship and professional service on every project.
