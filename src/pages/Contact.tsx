@@ -223,7 +223,7 @@ const Contact = () => {
                       <div>
                         <h3 className="font-poppins font-semibold text-primary mb-2">Our Location</h3>
                         <p className="font-open-sans text-gray-600">
-                          5 Wooford Pl, Hayfields<br />
+                          5 Woodford Pl, Hayfields<br />
                           Pietermaritzburg KZN<br />
                           South Africa
                         </p>
@@ -324,18 +324,22 @@ const Contact = () => {
                 Located in the heart of Pietermaritzburg, we serve clients throughout KwaZulu-Natal.
               </p>
               <div className="bg-white p-8 rounded-lg shadow-lg">
-                <div className="bg-gray-200 h-96 rounded-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="h-16 w-16 text-accent mx-auto mb-4" />
-                    <h3 className="font-poppins font-semibold text-primary mb-2">Interactive Map</h3>
-                    <p className="font-open-sans text-gray-600">
-                      5 Wooford Pl, Hayfields, Pietermaritzburg KZN
-                    </p>
-                    <p className="font-open-sans text-sm text-gray-500 mt-2">
-                      Google Maps integration would be placed here
-                    </p>
-                  </div>
+                <div className="rounded-lg overflow-hidden">
+                  <iframe
+                    src="https://www.google.com/maps?q=5+Woodford+Pl,+Hayfields,+Pietermaritzburg,+3201&z=16&output=embed"
+                    width="100%"
+                    height={450}
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Lum Tech Building Solutions location - 5 Woodford Pl, Hayfields, Pietermaritzburg"
+                    className="rounded-lg"
+                  />
                 </div>
+                <p className="font-open-sans text-gray-600 mt-4">
+                  5 Woodford Pl, Hayfields, Pietermaritzburg, 3201
+                </p>
               </div>
             </div>
           </div>
