@@ -7,6 +7,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { AuthProvider } from "@/hooks/useAuth";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import FloatingActions from "@/components/FloatingActions";
+import CookieConsent from "@/components/CookieConsent";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -37,6 +38,7 @@ const App = () => (
       <BrowserRouter>
         <AuthProvider>
           <FloatingActions />
+          <CookieConsent />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
