@@ -1,0 +1,17 @@
+name: Keep Supabase Alive Every 5 Days
+
+on:
+  schedule:
+    # Runs at 00:00 every 5 days
+    - cron: '0 0 */5 * *'
+  workflow_dispatch: # Lets you trigger this manually from the Actions tab anytime
+
+jobs:
+  ping_database:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send API traffic to Supabase
+        run: |
+          curl -f -X GET "${{ secrets.SUPABASE_URL }}/rest/v1/blog_posts?select=id&limit=1" \
+          -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
+          -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}"
