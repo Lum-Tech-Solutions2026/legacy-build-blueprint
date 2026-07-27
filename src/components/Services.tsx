@@ -25,7 +25,7 @@ const Services = () => {
       title: "Painting & Waterproofing",
     },
     {
-      slug: "tiling-painting",
+      slug: "maintenance",
       icon: <Wrench className="h-10 w-10 text-accent" />,
       title: "Maintenance & Repairs",
     },
@@ -57,7 +57,7 @@ const Services = () => {
             {services.map((service) => (
               <Link
                 key={service.slug}
-                to={`/services#${service.slug}`}
+                to={service.slug === "maintenance" ? "/maintenance" : `/services#${service.slug}`}
                 className="group bg-white p-6 md:p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-accent flex flex-col items-center text-center gap-3"
               >
                 {service.icon}
