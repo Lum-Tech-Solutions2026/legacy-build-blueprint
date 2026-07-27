@@ -111,10 +111,21 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-300 font-open-sans text-sm">
-            © {currentYear} Lum Tech Building Solutions. All rights reserved.
-          </p>
+        <div className="border-t border-white/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+            <p className="text-gray-300 font-open-sans text-sm">
+              © {currentYear} Lum Tech Building Solutions. All rights reserved.
+            </p>
+            <div className="flex items-center gap-3 text-sm">
+              <Link to="/privacy-policy" className="text-gray-300 hover:text-accent transition-colors font-open-sans">
+                Privacy Policy
+              </Link>
+              <span className="text-gray-500">|</span>
+              <Link to="/terms-of-service" className="text-gray-300 hover:text-accent transition-colors font-open-sans">
+                Terms of Service
+              </Link>
+            </div>
+          </div>
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
             <picture>
               <source srcSet={cidbLogoWebp} type="image/webp" />
