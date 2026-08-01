@@ -23,6 +23,8 @@ import AdminDashboard from "./pages/AdminDashboard";
 import AdminLeads from "./pages/AdminLeads";
 import AdminClients from "./pages/AdminClients";
 import AdminProjects from "./pages/AdminProjects";
+import AdminQuotes from "./pages/AdminQuotes";
+import AdminInvoices from "./pages/AdminInvoices";
 import AdminBlog from "./pages/AdminBlog";
 import AdminPortfolio from "./pages/AdminPortfolio";
 import NotFound from "./pages/NotFound";
@@ -55,6 +57,8 @@ const App = () => (
             <Route path="/admin/leads" element={<ProtectedRoute><AdminLeads /></ProtectedRoute>} />
             <Route path="/admin/clients" element={<ProtectedRoute><AdminClients /></ProtectedRoute>} />
             <Route path="/admin/projects" element={<ProtectedRoute><AdminProjects /></ProtectedRoute>} />
+            <Route path="/admin/quotes" element={<ProtectedRoute><AdminQuotes /></ProtectedRoute>} />
+            <Route path="/admin/invoices" element={<ProtectedRoute><AdminInvoices /></ProtectedRoute>} />
             <Route path="/admin/blog" element={<ProtectedRoute><AdminBlog /></ProtectedRoute>} />
             <Route path="/admin/portfolio" element={<ProtectedRoute><AdminPortfolio /></ProtectedRoute>} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

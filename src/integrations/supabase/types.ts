@@ -113,6 +113,7 @@ export type Database = {
           budget: number
           start_date: string | null
           end_date: string | null
+          project_number: string | null
           created_at: string
           updated_at: string
         }
@@ -125,6 +126,7 @@ export type Database = {
           budget?: number
           start_date?: string | null
           end_date?: string | null
+          project_number?: string | null
           created_at?: string
           updated_at?: string
         }
@@ -137,6 +139,7 @@ export type Database = {
           budget?: number
           start_date?: string | null
           end_date?: string | null
+          project_number?: string | null
           created_at?: string
           updated_at?: string
         }
@@ -458,6 +461,141 @@ export type Database = {
           key?: string
           value?: string | null
           updated_at?: string
+        }
+        Relationships: []
+      }
+      quotes: {
+        Row: {
+          id: string
+          client_id: string | null
+          project_id: string | null
+          quote_number: string | null
+          description: string | null
+          amount: number | null
+          status: string | null
+          expiry_date: string | null
+          pdf_url: string | null
+          created_at: string | null
+        }
+        Insert: {
+          id?: string
+          client_id?: string | null
+          project_id?: string | null
+          quote_number?: string | null
+          description?: string | null
+          amount?: number | null
+          status?: string | null
+          expiry_date?: string | null
+          pdf_url?: string | null
+          created_at?: string | null
+        }
+        Update: {
+          id?: string
+          client_id?: string | null
+          project_id?: string | null
+          quote_number?: string | null
+          description?: string | null
+          amount?: number | null
+          status?: string | null
+          expiry_date?: string | null
+          pdf_url?: string | null
+          created_at?: string | null
+        }
+        Relationships: []
+      }
+      invoices: {
+        Row: {
+          id: string
+          project_id: string | null
+          invoice_number: string | null
+          amount: number | null
+          vat: number | null
+          status: string | null
+          due_date: string | null
+          pdf_url: string | null
+          created_at: string | null
+        }
+        Insert: {
+          id?: string
+          project_id?: string | null
+          invoice_number?: string | null
+          amount?: number | null
+          vat?: number | null
+          status?: string | null
+          due_date?: string | null
+          pdf_url?: string | null
+          created_at?: string | null
+        }
+        Update: {
+          id?: string
+          project_id?: string | null
+          invoice_number?: string | null
+          amount?: number | null
+          vat?: number | null
+          status?: string | null
+          due_date?: string | null
+          pdf_url?: string | null
+          created_at?: string | null
+        }
+        Relationships: []
+      }
+      quote_items: {
+        Row: {
+          id: string
+          quote_id: string
+          description: string
+          quantity: number
+          unit_price: number
+          sort_order: number
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          quote_id: string
+          description: string
+          quantity?: number
+          unit_price?: number
+          sort_order?: number
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          quote_id?: string
+          description?: string
+          quantity?: number
+          unit_price?: number
+          sort_order?: number
+          created_at?: string
+        }
+        Relationships: []
+      }
+      invoice_items: {
+        Row: {
+          id: string
+          invoice_id: string
+          description: string
+          quantity: number
+          unit_price: number
+          sort_order: number
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          invoice_id: string
+          description: string
+          quantity?: number
+          unit_price?: number
+          sort_order?: number
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          invoice_id?: string
+          description?: string
+          quantity?: number
+          unit_price?: number
+          sort_order?: number
+          created_at?: string
         }
         Relationships: []
       }

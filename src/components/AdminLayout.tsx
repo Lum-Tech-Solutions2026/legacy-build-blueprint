@@ -6,6 +6,8 @@ import {
   Users,
   UserSquare2,
   FolderKanban,
+  FileText,
+  Receipt,
   Image as ImageIcon,
   Newspaper,
   LogOut,
@@ -19,6 +21,8 @@ const navItems = [
   { name: "Leads", path: "/admin/leads", icon: Users },
   { name: "Clients", path: "/admin/clients", icon: UserSquare2 },
   { name: "Projects", path: "/admin/projects", icon: FolderKanban },
+  { name: "Quotes", path: "/admin/quotes", icon: FileText },
+  { name: "Invoices", path: "/admin/invoices", icon: Receipt },
   { name: "Portfolio", path: "/admin/portfolio", icon: ImageIcon },
   { name: "Blog", path: "/admin/blog", icon: Newspaper },
 ];
