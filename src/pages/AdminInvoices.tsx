@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
-import { Loader2, Plus, Trash2, FileDown, X } from "lucide-react";
+import { Loader2, Plus, Trash2, FileDown, X, Mail, MessageCircle } from "lucide-react";
 import { generateDocumentPdf, type DocLineItem } from "@/lib/pdf/generateDocument";
 
 interface Client { id: string; name: string; email: string | null; phone: string | null; address: string | null; }
@@ -22,6 +22,8 @@ interface Invoice {
   status: string | null;
   due_date: string | null;
   created_at: string | null;
+  last_sent_at: string | null;
+  last_sent_channel: string | null;
 }
 interface InvoiceItem { id: string; invoice_id: string; description: string; quantity: number; unit_price: number; }
 
@@ -52,6 +54,7 @@ const AdminInvoices = () => {
   const [lines, setLines] = useState([{ ...emptyLine }]);
   const [saving, setSaving] = useState(false);
   const [downloadingId, setDownloadingId] = useState<string | null>(null);
+  const [sendingId, setSendingId] = useState<string | null>(null);
 
   const load = async () => {
     setLoading(true);
@@ -143,37 +146,73 @@ const AdminInvoices = () => {
     await supabase.from("invoices").update({ status }).eq("id", invoice.id);
   };
 
+  const buildInvoicePdf = async (invoice: Invoice) => {
+    const project = projectFor(invoice.project_id);
+    const client = clientFor(project);
+    const invoiceItems = itemsFor(invoice.id);
+    const docItems: DocLineItem[] = invoiceItems.length > 0
+      ? invoiceItems.map((i) => ({ description: i.description, quantity: Number(i.quantity), unit_price: Number(i.unit_price) }))
+      : [{ description: project?.title || "Services rendered", quantity: 1, unit_price: Number(invoice.amount) || 0 }];
+
+    return generateDocumentPdf({
+      kind: "INVOICE",
+      number: invoice.invoice_number || invoice.id.slice(0, 8).toUpperCase(),
+      issueDate: new Date(invoice.created_at || Date.now()).toLocaleDateString("en-ZA"),
+      dueOrExpiryLabel: "Due Date",
+      dueOrExpiryDate: invoice.due_date ? new Date(invoice.due_date).toLocaleDateString("en-ZA") : null,
+      status: invoice.status,
+      client: {
+        name: client?.name || "Client",
+        email: client?.email,
+        phone: client?.phone,
+        address: client?.address,
+      },
+      project: project ? { project_number: project.project_number, title: project.title } : null,
+      items: docItems,
+    });
+  };
+
   const download = async (invoice: Invoice) => {
     setDownloadingId(invoice.id);
     try {
-      const project = projectFor(invoice.project_id);
-      const client = clientFor(project);
-      const invoiceItems = itemsFor(invoice.id);
-      const docItems: DocLineItem[] = invoiceItems.length > 0
-        ? invoiceItems.map((i) => ({ description: i.description, quantity: Number(i.quantity), unit_price: Number(i.unit_price) }))
-        : [{ description: project?.title || "Services rendered", quantity: 1, unit_price: Number(invoice.amount) || 0 }];
-
-      const doc = await generateDocumentPdf({
-        kind: "INVOICE",
-        number: invoice.invoice_number || invoice.id.slice(0, 8).toUpperCase(),
-        issueDate: new Date(invoice.created_at || Date.now()).toLocaleDateString("en-ZA"),
-        dueOrExpiryLabel: "Due Date",
-        dueOrExpiryDate: invoice.due_date ? new Date(invoice.due_date).toLocaleDateString("en-ZA") : null,
-        status: invoice.status,
-        client: {
-          name: client?.name || "Client",
-          email: client?.email,
-          phone: client?.phone,
-          address: client?.address,
-        },
-        project: project ? { project_number: project.project_number, title: project.title } : null,
-        items: docItems,
-      });
+      const doc = await buildInvoicePdf(invoice);
       doc.save(`${invoice.invoice_number || "invoice"}.pdf`);
     } catch (err) {
       toast({ title: "Failed to generate PDF", description: String(err), variant: "destructive" });
     } finally {
       setDownloadingId(null);
+    }
+  };
+
+  const sendDocument = async (invoice: Invoice, channel: "whatsapp" | "email") => {
+    const project = projectFor(invoice.project_id);
+    const client = clientFor(project);
+    if (channel === "email" && !client?.email) {
+      toast({ title: "This client has no email address on file", variant: "destructive" });
+      return;
+    }
+    if (channel === "whatsapp" && !client?.phone) {
+      toast({ title: "This client has no phone number on file", variant: "destructive" });
+      return;
+    }
+    setSendingId(invoice.id);
+    try {
+      const doc = await buildInvoicePdf(invoice);
+      const filename = `${invoice.invoice_number || invoice.id.slice(0, 8)}.pdf`;
+      const dataUri = doc.output("datauristring");
+      const pdf_base64 = dataUri.split(",")[1];
+
+      const { error } = await supabase.functions.invoke("send-document", {
+        body: { kind: "invoice", id: invoice.id, channel, pdf_base64, filename },
+      });
+      if (error) throw error;
+
+      toast({ title: `Invoice sent via ${channel === "whatsapp" ? "WhatsApp" : "email"}` });
+      load();
+    } catch (err) {
+      toast({ title: "Send failed", description: String(err), variant: "destructive" });
+    } finally {
+      setSendingId(null);
     }
   };
 
@@ -287,6 +326,11 @@ const AdminInvoices = () => {
                   </div>
                   <p className="text-sm text-gray-500 mt-1">{client?.name ?? "—"} {project ? `• ${project.title}` : ""}</p>
                   <p className="font-semibold text-primary mt-1">{currency(total)} <span className="text-xs text-gray-400 font-normal">(incl. VAT)</span></p>
+                  {invoice.last_sent_at && (
+                    <p className="text-xs text-gray-400 mt-1">
+                      Last sent via {invoice.last_sent_channel} on {new Date(invoice.last_sent_at).toLocaleDateString("en-ZA")}
+                    </p>
+                  )}
                 </div>
                 <div className="flex flex-row md:flex-col gap-2 shrink-0">
                   <Select value={invoice.status || "Pending"} onValueChange={(v) => updateStatus(invoice, v)}>
@@ -299,6 +343,14 @@ const AdminInvoices = () => {
                     <Button size="sm" variant="outline" className="gap-1" onClick={() => download(invoice)} disabled={downloadingId === invoice.id}>
                       {downloadingId === invoice.id ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <FileDown className="h-3.5 w-3.5" />}
                       PDF
+                    </Button>
+                    <Button size="sm" variant="outline" className="gap-1" onClick={() => sendDocument(invoice, "whatsapp")} disabled={sendingId === invoice.id}>
+                      {sendingId === invoice.id ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <MessageCircle className="h-3.5 w-3.5" />}
+                      WhatsApp
+                    </Button>
+                    <Button size="sm" variant="outline" className="gap-1" onClick={() => sendDocument(invoice, "email")} disabled={sendingId === invoice.id}>
+                      {sendingId === invoice.id ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Mail className="h-3.5 w-3.5" />}
+                      Email
                     </Button>
                     <Button size="icon" variant="outline" onClick={() => remove(invoice)}>
                       <Trash2 className="h-4 w-4 text-destructive" />

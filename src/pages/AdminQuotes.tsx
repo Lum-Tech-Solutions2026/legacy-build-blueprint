@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
-import { Loader2, Plus, Trash2, FileDown, X } from "lucide-react";
+import { Loader2, Plus, Trash2, FileDown, X, Mail, MessageCircle } from "lucide-react";
 import { generateDocumentPdf, type DocLineItem } from "@/lib/pdf/generateDocument";
 
 interface Client { id: string; name: string; email: string | null; phone: string | null; address: string | null; }
@@ -24,6 +24,8 @@ interface Quote {
   status: string | null;
   expiry_date: string | null;
   created_at: string | null;
+  last_sent_at: string | null;
+  last_sent_channel: string | null;
 }
 interface QuoteItem { id: string; quote_id: string; description: string; quantity: number; unit_price: number; }
 
@@ -61,6 +63,7 @@ const AdminQuotes = () => {
   const [lines, setLines] = useState([{ ...emptyLine }]);
   const [saving, setSaving] = useState(false);
   const [downloadingId, setDownloadingId] = useState<string | null>(null);
+  const [sendingId, setSendingId] = useState<string | null>(null);
 
   const load = async () => {
     setLoading(true);
@@ -152,38 +155,73 @@ const AdminQuotes = () => {
     await supabase.from("quotes").update({ status }).eq("id", quote.id);
   };
 
+  const buildQuotePdf = async (quote: Quote) => {
+    const client = clients.find((c) => c.id === quote.client_id);
+    const project = projects.find((p) => p.id === quote.project_id);
+    const quoteItems = itemsFor(quote.id);
+    const docItems: DocLineItem[] = quoteItems.length > 0
+      ? quoteItems.map((i) => ({ description: i.description, quantity: Number(i.quantity), unit_price: Number(i.unit_price) }))
+      : [{ description: quote.description || "Services rendered", quantity: 1, unit_price: Number(quote.amount) || 0 }];
+
+    return generateDocumentPdf({
+      kind: "QUOTATION",
+      number: quote.quote_number || quote.id.slice(0, 8).toUpperCase(),
+      issueDate: new Date(quote.created_at || Date.now()).toLocaleDateString("en-ZA"),
+      dueOrExpiryLabel: "Valid Until",
+      dueOrExpiryDate: quote.expiry_date ? new Date(quote.expiry_date).toLocaleDateString("en-ZA") : null,
+      status: quote.status,
+      client: {
+        name: client?.name || "Client",
+        email: client?.email,
+        phone: client?.phone,
+        address: client?.address,
+      },
+      project: project ? { project_number: project.project_number, title: project.title } : null,
+      items: docItems,
+      notes: quote.description || undefined,
+    });
+  };
+
   const download = async (quote: Quote) => {
     setDownloadingId(quote.id);
     try {
-      const client = clients.find((c) => c.id === quote.client_id);
-      const project = projects.find((p) => p.id === quote.project_id);
-      const quoteItems = itemsFor(quote.id);
-      const docItems: DocLineItem[] = quoteItems.length > 0
-        ? quoteItems.map((i) => ({ description: i.description, quantity: Number(i.quantity), unit_price: Number(i.unit_price) }))
-        : [{ description: quote.description || "Services rendered", quantity: 1, unit_price: Number(quote.amount) || 0 }];
-
-      const doc = await generateDocumentPdf({
-        kind: "QUOTATION",
-        number: quote.quote_number || quote.id.slice(0, 8).toUpperCase(),
-        issueDate: new Date(quote.created_at || Date.now()).toLocaleDateString("en-ZA"),
-        dueOrExpiryLabel: "Valid Until",
-        dueOrExpiryDate: quote.expiry_date ? new Date(quote.expiry_date).toLocaleDateString("en-ZA") : null,
-        status: quote.status,
-        client: {
-          name: client?.name || "Client",
-          email: client?.email,
-          phone: client?.phone,
-          address: client?.address,
-        },
-        project: project ? { project_number: project.project_number, title: project.title } : null,
-        items: docItems,
-        notes: quote.description || undefined,
-      });
+      const doc = await buildQuotePdf(quote);
       doc.save(`${quote.quote_number || "quote"}.pdf`);
     } catch (err) {
       toast({ title: "Failed to generate PDF", description: String(err), variant: "destructive" });
     } finally {
       setDownloadingId(null);
+    }
+  };
+
+  const sendDocument = async (quote: Quote, channel: "whatsapp" | "email") => {
+    const client = clients.find((c) => c.id === quote.client_id);
+    if (channel === "email" && !client?.email) {
+      toast({ title: "This client has no email address on file", variant: "destructive" });
+      return;
+    }
+    if (channel === "whatsapp" && !client?.phone) {
+      toast({ title: "This client has no phone number on file", variant: "destructive" });
+      return;
+    }
+    setSendingId(quote.id);
+    try {
+      const doc = await buildQuotePdf(quote);
+      const filename = `${quote.quote_number || quote.id.slice(0, 8)}.pdf`;
+      const dataUri = doc.output("datauristring");
+      const pdf_base64 = dataUri.split(",")[1];
+
+      const { error } = await supabase.functions.invoke("send-document", {
+        body: { kind: "quote", id: quote.id, channel, pdf_base64, filename },
+      });
+      if (error) throw error;
+
+      toast({ title: `Quote sent via ${channel === "whatsapp" ? "WhatsApp" : "email"}` });
+      load();
+    } catch (err) {
+      toast({ title: "Send failed", description: String(err), variant: "destructive" });
+    } finally {
+      setSendingId(null);
     }
   };
 
@@ -304,6 +342,11 @@ const AdminQuotes = () => {
                 </div>
                 <p className="text-sm text-gray-500 mt-1">{clientName(quote.client_id)}</p>
                 <p className="font-semibold text-primary mt-1">{currency(Number(quote.amount) || 0)}</p>
+                {quote.last_sent_at && (
+                  <p className="text-xs text-gray-400 mt-1">
+                    Last sent via {quote.last_sent_channel} on {new Date(quote.last_sent_at).toLocaleDateString("en-ZA")}
+                  </p>
+                )}
               </div>
               <div className="flex flex-row md:flex-col gap-2 shrink-0">
                 <Select value={quote.status || "Draft"} onValueChange={(v) => updateStatus(quote, v)}>
@@ -316,6 +359,14 @@ const AdminQuotes = () => {
                   <Button size="sm" variant="outline" className="gap-1" onClick={() => download(quote)} disabled={downloadingId === quote.id}>
                     {downloadingId === quote.id ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <FileDown className="h-3.5 w-3.5" />}
                     PDF
+                  </Button>
+                  <Button size="sm" variant="outline" className="gap-1" onClick={() => sendDocument(quote, "whatsapp")} disabled={sendingId === quote.id}>
+                    {sendingId === quote.id ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <MessageCircle className="h-3.5 w-3.5" />}
+                    WhatsApp
+                  </Button>
+                  <Button size="sm" variant="outline" className="gap-1" onClick={() => sendDocument(quote, "email")} disabled={sendingId === quote.id}>
+                    {sendingId === quote.id ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Mail className="h-3.5 w-3.5" />}
+                    Email
                   </Button>
                   <Button size="icon" variant="outline" onClick={() => remove(quote)}>
                     <Trash2 className="h-4 w-4 text-destructive" />

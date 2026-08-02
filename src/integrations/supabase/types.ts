@@ -475,6 +475,8 @@ export type Database = {
           status: string | null
           expiry_date: string | null
           pdf_url: string | null
+          last_sent_at: string | null
+          last_sent_channel: string | null
           created_at: string | null
         }
         Insert: {
@@ -487,6 +489,8 @@ export type Database = {
           status?: string | null
           expiry_date?: string | null
           pdf_url?: string | null
+          last_sent_at?: string | null
+          last_sent_channel?: string | null
           created_at?: string | null
         }
         Update: {
@@ -499,6 +503,8 @@ export type Database = {
           status?: string | null
           expiry_date?: string | null
           pdf_url?: string | null
+          last_sent_at?: string | null
+          last_sent_channel?: string | null
           created_at?: string | null
         }
         Relationships: []
@@ -513,6 +519,8 @@ export type Database = {
           status: string | null
           due_date: string | null
           pdf_url: string | null
+          last_sent_at: string | null
+          last_sent_channel: string | null
           created_at: string | null
         }
         Insert: {
@@ -524,6 +532,8 @@ export type Database = {
           status?: string | null
           due_date?: string | null
           pdf_url?: string | null
+          last_sent_at?: string | null
+          last_sent_channel?: string | null
           created_at?: string | null
         }
         Update: {
@@ -535,6 +545,8 @@ export type Database = {
           status?: string | null
           due_date?: string | null
           pdf_url?: string | null
+          last_sent_at?: string | null
+          last_sent_channel?: string | null
           created_at?: string | null
         }
         Relationships: []
