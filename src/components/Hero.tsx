@@ -27,9 +27,9 @@ const Hero = () => {
             </h1>
 
             <p className="text-xl md:text-2xl font-open-sans mb-8 text-white max-w-2xl mx-auto lg:mx-0 leading-relaxed [text-shadow:0_2px_10px_rgba(0,0,0,0.85),0_1px_3px_rgba(0,0,0,0.9)]">
-              We deliver residential, commercial and renovation projects with a commitment to quality
-              workmanship, professional project management and full compliance with South African
-              building standards.
+              New homes, commercial builds, renovations, extensions, and maintenance — delivered
+              across KwaZulu-Natal for 10+ years. NHBRC and CIDB registered, built to SANS 10400
+              standards, managed transparently from quote to handover.
             </p>
 
             <div className="flex flex-col md:flex-row items-center justify-center lg:justify-start gap-4 mb-10">
