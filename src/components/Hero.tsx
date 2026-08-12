@@ -9,7 +9,7 @@ const Hero = () => {
     <section className="relative min-h-[640px] lg:min-h-screen flex items-center overflow-hidden py-20 lg:py-0">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-[center_25%] lg:bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-[65%_35%] lg:bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-construction-primary/97 via-construction-primary/95 to-construction-primary/92"></div>
