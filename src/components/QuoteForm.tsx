@@ -27,7 +27,7 @@ interface QuoteFormProps {
 
 const QuoteForm = ({ source, compact = false, onSuccess }: QuoteFormProps) => {
   const { toast } = useToast();
-  const [form, setForm] = useState({ name: "", phone: "", email: "", project_type: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "", email: "", project_type: "", message: "", heardFrom: "" });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -41,7 +41,7 @@ const QuoteForm = ({ source, compact = false, onSuccess }: QuoteFormProps) => {
         email: form.email || null,
         project_type: form.project_type || null,
         message: form.message || null,
-        source,
+        source: form.heardFrom || source,
       });
       if (error) throw error;
       setSubmitted(true);
@@ -89,17 +89,15 @@ const QuoteForm = ({ source, compact = false, onSuccess }: QuoteFormProps) => {
           />
         </div>
       </div>
-      {!compact && (
-        <div className="space-y-1.5">
-          <Label htmlFor="qf-email">Email Address</Label>
-          <Input
-            id="qf-email"
-            type="email"
-            value={form.email}
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
-          />
-        </div>
-      )}
+      <div className="space-y-1.5">
+        <Label htmlFor="qf-email">Email Address</Label>
+        <Input
+          id="qf-email"
+          type="email"
+          value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
+        />
+      </div>
       <div className="space-y-1.5">
         <Label>Project Type</Label>
         <Select value={form.project_type} onValueChange={(v) => setForm({ ...form, project_type: v })}>
@@ -108,6 +106,24 @@ const QuoteForm = ({ source, compact = false, onSuccess }: QuoteFormProps) => {
             {PROJECT_TYPES.map((t) => <SelectItem key={t} value={t}>{t}</SelectItem>)}
           </SelectContent>
         </Select>
+      </div>
+      <div className="space-y-1.5">
+        <Label htmlFor="qf-heard-from">How did you hear about us?</Label>
+        <select
+          id="qf-heard-from"
+          value={form.heardFrom}
+          onChange={(e) => setForm({ ...form, heardFrom: e.target.value })}
+          className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm font-open-sans ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <option value="">Select an option (optional)</option>
+          <option value="google_search">Google Search</option>
+          <option value="facebook">Facebook</option>
+          <option value="instagram">Instagram</option>
+          <option value="word_of_mouth">Word of Mouth / Referral</option>
+          <option value="previous_client">Previous Client</option>
+          <option value="drive_by_signage">Site Signage / Driving Past</option>
+          <option value="other">Other</option>
+        </select>
       </div>
       {!compact && (
         <div className="space-y-1.5">
