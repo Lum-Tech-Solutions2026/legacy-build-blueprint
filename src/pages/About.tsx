@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { CheckCircle, Award, Users, Clock, Target, Heart, Eye } from "lucide-react";
+import { CheckCircle, Award, Users, Clock, Target, Heart, Eye, HardHat, ShieldCheck } from "lucide-react";
 import SEO from "@/components/SEO";
 
 const About = () => {
@@ -175,6 +175,39 @@ const About = () => {
           </div>
         </section>
 
+        {/* Safety Commitment */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <HardHat className="h-16 w-16 text-accent mx-auto mb-6" />
+              <h2 className="text-3xl md:text-4xl font-poppins font-bold text-primary mb-6">
+                Our Safety Commitment
+              </h2>
+              <div className="w-24 h-1 bg-construction-blue mx-auto mb-8"></div>
+              <p className="text-lg font-open-sans text-gray-600 leading-relaxed mb-10">
+                Safety is a non-negotiable part of how we work. Every site is managed with strict
+                adherence to South African occupational health and safety requirements, protecting
+                our team, our clients, and the public throughout every project.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto text-left">
+                {[
+                  "Compliance with the Occupational Health and Safety Act (OHSA)",
+                  "Site-specific safety plans and risk assessments",
+                  "Personal protective equipment (PPE) enforced on all sites",
+                  "Regular safety inspections throughout each project",
+                  "Trained and safety-briefed site personnel",
+                  "Secure, hazard-managed sites to protect the public and property",
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <ShieldCheck className="h-5 w-5 text-accent mt-0.5 shrink-0" />
+                    <span className="font-open-sans text-gray-600">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* NHBRC Registration */}
         <section className="py-20 bg-primary text-white">
           <div className="container mx-auto px-4">
@@ -224,6 +257,39 @@ const About = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+
+              <div className="mt-16 pt-12 border-t border-white/20">
+                <h3 className="text-2xl font-poppins font-bold mb-6">Warranty Information</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                  <div className="bg-white/10 rounded-lg p-5">
+                    <p className="font-poppins font-bold text-accent text-2xl mb-1">3 Months</p>
+                    <p className="font-open-sans text-gray-200 text-sm">
+                      Defects liability period for any deviation from the agreed plans, specifications,
+                      workmanship, or materials on new NHBRC-enrolled homes.
+                    </p>
+                  </div>
+                  <div className="bg-white/10 rounded-lg p-5">
+                    <p className="font-poppins font-bold text-accent text-2xl mb-1">1 Year</p>
+                    <p className="font-open-sans text-gray-200 text-sm">
+                      Roof leak cover from the date of occupation on new NHBRC-enrolled homes.
+                    </p>
+                  </div>
+                  <div className="bg-white/10 rounded-lg p-5">
+                    <p className="font-poppins font-bold text-accent text-2xl mb-1">5 Years</p>
+                    <p className="font-open-sans text-gray-200 text-sm">
+                      Cover against major structural defects from the date of occupation on new
+                      NHBRC-enrolled homes.
+                    </p>
+                  </div>
+                </div>
+                <p className="font-open-sans text-gray-300 text-sm mt-6 max-w-3xl">
+                  These statutory warranty periods apply to new homes enrolled with the NHBRC in
+                  terms of the Housing Consumers Protection Measures Act. For renovations,
+                  extensions, commercial work, and maintenance projects, the specific workmanship
+                  warranty terms are set out in your project agreement — just ask us and we'll
+                  confirm what applies to your project.
+                </p>
               </div>
             </div>
           </div>
