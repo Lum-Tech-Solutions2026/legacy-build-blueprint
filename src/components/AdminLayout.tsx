@@ -15,6 +15,7 @@ import {
   X,
 } from "lucide-react";
 import logo from "@/assets/lumtech-logo-dark.png";
+import NotificationToggle from "@/components/NotificationToggle";
 
 const navItems = [
   { name: "Dashboard", path: "/admin", icon: LayoutDashboard },
@@ -65,6 +66,7 @@ const AdminLayout = ({ children, title }: { children: ReactNode; title: string }
         {user?.email && (
           <p className="px-3 pb-2 text-xs text-gray-400 truncate">{user.email}</p>
         )}
+        <NotificationToggle />
         <button
           onClick={signOut}
           className="flex w-full items-center gap-3 px-3 py-2.5 rounded-md font-poppins text-sm text-gray-300 hover:bg-white/10 hover:text-white transition-colors"

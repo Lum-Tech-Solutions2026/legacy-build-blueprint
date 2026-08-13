@@ -12,8 +12,14 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     VitePWA({
+      strategies: "injectManifest",
+      srcDir: "src",
+      filename: "sw.ts",
       registerType: "autoUpdate",
       includeAssets: ["favicon-16x16.png", "favicon-32x32.png", "apple-touch-icon.png"],
+      injectManifest: {
+        globPatterns: ["**/*.{js,css,html,ico,png,svg,webp}"],
+      },
       manifest: {
         name: "Lum Tech Building Solutions",
         short_name: "Lum Tech",
@@ -39,22 +45,6 @@ export default defineConfig(({ mode }) => ({
             sizes: "512x512",
             type: "image/png",
             purpose: "maskable",
-          },
-        ],
-      },
-      workbox: {
-        // Don't let the SW cache /admin or /auth - always fetch fresh so
-        // logged-in admin data is never served stale from cache.
-        navigateFallbackDenylist: [/^\/admin/, /^\/auth/],
-        runtimeCaching: [
-          {
-            urlPattern: /^https:\/\/tugfihcysrphyxadpcrz\.supabase\.co\/.*/i,
-            handler: "NetworkFirst",
-            options: {
-              cacheName: "supabase-api-cache",
-              networkTimeoutSeconds: 5,
-              cacheableResponse: { statuses: [0, 200] },
-            },
           },
         ],
       },

@@ -166,6 +166,26 @@ Deno.serve(async (req: Request) => {
     });
     await log("site_inspection_task", null, taskError ? "failed" : "sent", taskError ? taskError.message : "task created, due within 24h");
 
+    // --- 4. Push notification to any admin devices subscribed on this dashboard ---
+    try {
+      const pushRes = await fetch(`${Deno.env.get("SUPABASE_URL")}/functions/v1/send-push`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-webhook-secret": WEBHOOK_SECRET || "",
+        },
+        body: JSON.stringify({
+          title: "New Lead",
+          body: `${lead.name} — ${lead.project_type || "General enquiry"} (via ${lead.source || "website"})`,
+          url: "/admin/leads",
+        }),
+      });
+      const pushResult = await pushRes.json();
+      await log("push_notification", "push", pushRes.ok ? "sent" : "failed", pushRes.ok ? `${pushResult.sent}/${pushResult.total} device(s)` : JSON.stringify(pushResult));
+    } catch (pushErr) {
+      await log("push_notification", "push", "failed", String(pushErr));
+    }
+
     return new Response(JSON.stringify({ ok: true }), { headers: { "Content-Type": "application/json" } });
   } catch (err) {
     return new Response(JSON.stringify({ error: String(err) }), { status: 500 });
