@@ -145,6 +145,7 @@ const Contact = () => {
                           type="tel"
                           value={formData.phone}
                           onChange={handleInputChange}
+                          placeholder="e.g., 063 412 7228"
                           className="font-open-sans"
                         />
                       </div>
