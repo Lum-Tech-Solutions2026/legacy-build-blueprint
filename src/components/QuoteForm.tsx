@@ -76,6 +76,7 @@ const QuoteForm = ({ source, compact = false, onSuccess }: QuoteFormProps) => {
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
             required
+            placeholder="e.g., Thabo Mkhize"
           />
         </div>
         <div className="space-y-1.5">
@@ -86,6 +87,7 @@ const QuoteForm = ({ source, compact = false, onSuccess }: QuoteFormProps) => {
             value={form.phone}
             onChange={(e) => setForm({ ...form, phone: e.target.value })}
             required
+            placeholder="e.g., 063 412 7228"
           />
         </div>
       </div>
@@ -96,6 +98,7 @@ const QuoteForm = ({ source, compact = false, onSuccess }: QuoteFormProps) => {
           type="email"
           value={form.email}
           onChange={(e) => setForm({ ...form, email: e.target.value })}
+          placeholder="you@example.com"
         />
       </div>
       <div className="space-y-1.5">
