@@ -10,187 +10,10 @@ export type Database = {
   // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
-    PostgrestVersion: "14.5"
+    PostgrestVersion: "14.15"
   }
   public: {
     Tables: {
-      leads: {
-        Row: {
-          id: string
-          name: string
-          email: string | null
-          phone: string | null
-          project_type: string | null
-          message: string | null
-          source: string
-          status: Database["public"]["Enums"]["lead_status"]
-          estimated_value: number | null
-          notes: string | null
-          client_id: string | null
-          created_at: string
-          updated_at: string
-        }
-        Insert: {
-          id?: string
-          name: string
-          email?: string | null
-          phone?: string | null
-          project_type?: string | null
-          message?: string | null
-          source?: string
-          status?: Database["public"]["Enums"]["lead_status"]
-          estimated_value?: number | null
-          notes?: string | null
-          client_id?: string | null
-          created_at?: string
-          updated_at?: string
-        }
-        Update: {
-          id?: string
-          name?: string
-          email?: string | null
-          phone?: string | null
-          project_type?: string | null
-          message?: string | null
-          source?: string
-          status?: Database["public"]["Enums"]["lead_status"]
-          estimated_value?: number | null
-          notes?: string | null
-          client_id?: string | null
-          created_at?: string
-          updated_at?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "leads_client_id_fkey"
-            columns: ["client_id"]
-            isOneToOne: false
-            referencedRelation: "clients"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      clients: {
-        Row: {
-          id: string
-          name: string
-          email: string | null
-          phone: string | null
-          address: string | null
-          notes: string | null
-          created_at: string
-          updated_at: string
-        }
-        Insert: {
-          id?: string
-          name: string
-          email?: string | null
-          phone?: string | null
-          address?: string | null
-          notes?: string | null
-          created_at?: string
-          updated_at?: string
-        }
-        Update: {
-          id?: string
-          name?: string
-          email?: string | null
-          phone?: string | null
-          address?: string | null
-          notes?: string | null
-          created_at?: string
-          updated_at?: string
-        }
-        Relationships: []
-      }
-      projects: {
-        Row: {
-          id: string
-          client_id: string
-          title: string
-          description: string | null
-          status: Database["public"]["Enums"]["project_status"]
-          budget: number
-          start_date: string | null
-          end_date: string | null
-          project_number: string | null
-          created_at: string
-          updated_at: string
-        }
-        Insert: {
-          id?: string
-          client_id: string
-          title: string
-          description?: string | null
-          status?: Database["public"]["Enums"]["project_status"]
-          budget?: number
-          start_date?: string | null
-          end_date?: string | null
-          project_number?: string | null
-          created_at?: string
-          updated_at?: string
-        }
-        Update: {
-          id?: string
-          client_id?: string
-          title?: string
-          description?: string | null
-          status?: Database["public"]["Enums"]["project_status"]
-          budget?: number
-          start_date?: string | null
-          end_date?: string | null
-          project_number?: string | null
-          created_at?: string
-          updated_at?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "projects_client_id_fkey"
-            columns: ["client_id"]
-            isOneToOne: false
-            referencedRelation: "clients"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      construction_payments: {
-        Row: {
-          id: string
-          project_id: string
-          amount: number
-          type: Database["public"]["Enums"]["construction_payment_type"]
-          paid_at: string
-          notes: string | null
-          created_at: string
-        }
-        Insert: {
-          id?: string
-          project_id: string
-          amount: number
-          type?: Database["public"]["Enums"]["construction_payment_type"]
-          paid_at?: string
-          notes?: string | null
-          created_at?: string
-        }
-        Update: {
-          id?: string
-          project_id?: string
-          amount?: number
-          type?: Database["public"]["Enums"]["construction_payment_type"]
-          paid_at?: string
-          notes?: string | null
-          created_at?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "construction_payments_project_id_fkey"
-            columns: ["project_id"]
-            isOneToOne: false
-            referencedRelation: "projects"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
       blog_posts: {
         Row: {
           author_id: string | null
@@ -269,78 +92,6 @@ export type Database = {
         }
         Relationships: []
       }
-      portfolio_projects: {
-        Row: {
-          id: string
-          title: string
-          location: string | null
-          description: string | null
-          services_completed: string | null
-          completion_year: number | null
-          category: string
-          featured: boolean
-          sort_order: number
-          created_at: string
-          updated_at: string
-        }
-        Insert: {
-          id?: string
-          title: string
-          location?: string | null
-          description?: string | null
-          services_completed?: string | null
-          completion_year?: number | null
-          category?: string
-          featured?: boolean
-          sort_order?: number
-          created_at?: string
-          updated_at?: string
-        }
-        Update: {
-          id?: string
-          title?: string
-          location?: string | null
-          description?: string | null
-          services_completed?: string | null
-          completion_year?: number | null
-          category?: string
-          featured?: boolean
-          sort_order?: number
-          created_at?: string
-          updated_at?: string
-        }
-        Relationships: []
-      }
-      portfolio_media: {
-        Row: {
-          id: string
-          project_id: string
-          media_url: string
-          media_type: string
-          phase: string
-          sort_order: number
-          created_at: string
-        }
-        Insert: {
-          id?: string
-          project_id: string
-          media_url: string
-          media_type?: string
-          phase?: string
-          sort_order?: number
-          created_at?: string
-        }
-        Update: {
-          id?: string
-          project_id?: string
-          media_url?: string
-          media_type?: string
-          phase?: string
-          sort_order?: number
-          created_at?: string
-        }
-        Relationships: []
-      }
       profiles: {
         Row: {
           created_at: string
@@ -380,336 +131,6 @@ export type Database = {
         }
         Relationships: []
       }
-      testimonials: {
-        Row: {
-          id: string
-          client_name: string | null
-          company_name: string | null
-          rating: number | null
-          comment: string | null
-          photo_url: string | null
-          approved: boolean | null
-          created_at: string | null
-        }
-        Insert: {
-          id?: string
-          client_name?: string | null
-          company_name?: string | null
-          rating?: number | null
-          comment?: string | null
-          photo_url?: string | null
-          approved?: boolean | null
-          created_at?: string | null
-        }
-        Update: {
-          id?: string
-          client_name?: string | null
-          company_name?: string | null
-          rating?: number | null
-          comment?: string | null
-          photo_url?: string | null
-          approved?: boolean | null
-          created_at?: string | null
-        }
-        Relationships: []
-      }
-      tasks: {
-        Row: {
-          id: string
-          lead_id: string | null
-          project_id: string | null
-          type: string
-          title: string
-          due_at: string
-          status: string
-          notes: string | null
-          created_at: string
-          updated_at: string
-        }
-        Insert: {
-          id?: string
-          lead_id?: string | null
-          project_id?: string | null
-          type?: string
-          title: string
-          due_at?: string
-          status?: string
-          notes?: string | null
-          created_at?: string
-          updated_at?: string
-        }
-        Update: {
-          id?: string
-          lead_id?: string | null
-          project_id?: string | null
-          type?: string
-          title?: string
-          due_at?: string
-          status?: string
-          notes?: string | null
-          created_at?: string
-          updated_at?: string
-        }
-        Relationships: []
-      }
-      message_templates: {
-        Row: {
-          id: string
-          key: string
-          channel: string
-          name: string
-          subject: string | null
-          body: string
-          created_at: string
-          updated_at: string
-        }
-        Insert: {
-          id?: string
-          key: string
-          channel: string
-          name: string
-          subject?: string | null
-          body: string
-          created_at?: string
-          updated_at?: string
-        }
-        Update: {
-          id?: string
-          key?: string
-          channel?: string
-          name?: string
-          subject?: string | null
-          body?: string
-          created_at?: string
-          updated_at?: string
-        }
-        Relationships: []
-      }
-      automation_log: {
-        Row: {
-          id: string
-          lead_id: string | null
-          quote_id: string | null
-          step: string
-          channel: string | null
-          status: string
-          detail: string | null
-          created_at: string
-        }
-        Insert: {
-          id?: string
-          lead_id?: string | null
-          quote_id?: string | null
-          step: string
-          channel?: string | null
-          status: string
-          detail?: string | null
-          created_at?: string
-        }
-        Update: {
-          id?: string
-          lead_id?: string | null
-          quote_id?: string | null
-          step?: string
-          channel?: string | null
-          status?: string
-          detail?: string | null
-          created_at?: string
-        }
-        Relationships: []
-      }
-      push_subscriptions: {
-        Row: {
-          id: string
-          user_id: string
-          endpoint: string
-          p256dh: string
-          auth_key: string
-          created_at: string
-        }
-        Insert: {
-          id?: string
-          user_id: string
-          endpoint: string
-          p256dh: string
-          auth_key: string
-          created_at?: string
-        }
-        Update: {
-          id?: string
-          user_id?: string
-          endpoint?: string
-          p256dh?: string
-          auth_key?: string
-          created_at?: string
-        }
-        Relationships: []
-      }
-      app_settings: {
-        Row: {
-          key: string
-          value: string | null
-          updated_at: string
-        }
-        Insert: {
-          key: string
-          value?: string | null
-          updated_at?: string
-        }
-        Update: {
-          key?: string
-          value?: string | null
-          updated_at?: string
-        }
-        Relationships: []
-      }
-      quotes: {
-        Row: {
-          id: string
-          client_id: string | null
-          project_id: string | null
-          quote_number: string | null
-          description: string | null
-          amount: number | null
-          status: string | null
-          expiry_date: string | null
-          pdf_url: string | null
-          last_sent_at: string | null
-          last_sent_channel: string | null
-          created_at: string | null
-        }
-        Insert: {
-          id?: string
-          client_id?: string | null
-          project_id?: string | null
-          quote_number?: string | null
-          description?: string | null
-          amount?: number | null
-          status?: string | null
-          expiry_date?: string | null
-          pdf_url?: string | null
-          last_sent_at?: string | null
-          last_sent_channel?: string | null
-          created_at?: string | null
-        }
-        Update: {
-          id?: string
-          client_id?: string | null
-          project_id?: string | null
-          quote_number?: string | null
-          description?: string | null
-          amount?: number | null
-          status?: string | null
-          expiry_date?: string | null
-          pdf_url?: string | null
-          last_sent_at?: string | null
-          last_sent_channel?: string | null
-          created_at?: string | null
-        }
-        Relationships: []
-      }
-      invoices: {
-        Row: {
-          id: string
-          project_id: string | null
-          invoice_number: string | null
-          amount: number | null
-          vat: number | null
-          status: string | null
-          due_date: string | null
-          pdf_url: string | null
-          last_sent_at: string | null
-          last_sent_channel: string | null
-          created_at: string | null
-        }
-        Insert: {
-          id?: string
-          project_id?: string | null
-          invoice_number?: string | null
-          amount?: number | null
-          vat?: number | null
-          status?: string | null
-          due_date?: string | null
-          pdf_url?: string | null
-          last_sent_at?: string | null
-          last_sent_channel?: string | null
-          created_at?: string | null
-        }
-        Update: {
-          id?: string
-          project_id?: string | null
-          invoice_number?: string | null
-          amount?: number | null
-          vat?: number | null
-          status?: string | null
-          due_date?: string | null
-          pdf_url?: string | null
-          last_sent_at?: string | null
-          last_sent_channel?: string | null
-          created_at?: string | null
-        }
-        Relationships: []
-      }
-      quote_items: {
-        Row: {
-          id: string
-          quote_id: string
-          description: string
-          quantity: number
-          unit_price: number
-          sort_order: number
-          created_at: string
-        }
-        Insert: {
-          id?: string
-          quote_id: string
-          description: string
-          quantity?: number
-          unit_price?: number
-          sort_order?: number
-          created_at?: string
-        }
-        Update: {
-          id?: string
-          quote_id?: string
-          description?: string
-          quantity?: number
-          unit_price?: number
-          sort_order?: number
-          created_at?: string
-        }
-        Relationships: []
-      }
-      invoice_items: {
-        Row: {
-          id: string
-          invoice_id: string
-          description: string
-          quantity: number
-          unit_price: number
-          sort_order: number
-          created_at: string
-        }
-        Insert: {
-          id?: string
-          invoice_id: string
-          description: string
-          quantity?: number
-          unit_price?: number
-          sort_order?: number
-          created_at?: string
-        }
-        Update: {
-          id?: string
-          invoice_id?: string
-          description?: string
-          quantity?: number
-          unit_price?: number
-          sort_order?: number
-          created_at?: string
-        }
-        Relationships: []
-      }
     }
     Views: {
       [_ in never]: never
@@ -725,9 +146,6 @@ export type Database = {
     }
     Enums: {
       app_role: "admin" | "user"
-      lead_status: "new" | "contacted" | "quoted" | "won" | "lost"
-      project_status: "quoted" | "in_progress" | "completed" | "on_hold" | "cancelled"
-      construction_payment_type: "deposit" | "milestone" | "final" | "other"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -743,12 +161,12 @@ export type Tables<
   DefaultSchemaTableNameOrOptions extends
     | keyof (DefaultSchema["Tables"] & DefaultSchema["Views"])
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends DefaultSchemaTableNameOrOptions extends {
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
         DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
-    : never = never,
+    : never) = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -772,11 +190,11 @@ export type TablesInsert<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends DefaultSchemaTableNameOrOptions extends {
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
-    : never = never,
+    : never) = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -797,11 +215,11 @@ export type TablesUpdate<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends DefaultSchemaTableNameOrOptions extends {
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
-    : never = never,
+    : never) = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -822,11 +240,11 @@ export type Enums<
   DefaultSchemaEnumNameOrOptions extends
     | keyof DefaultSchema["Enums"]
     | { schema: keyof DatabaseWithoutInternals },
-  EnumName extends DefaultSchemaEnumNameOrOptions extends {
+  EnumName extends (DefaultSchemaEnumNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
-    : never = never,
+    : never) = never,
 > = DefaultSchemaEnumNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -839,11 +257,11 @@ export type CompositeTypes<
   PublicCompositeTypeNameOrOptions extends
     | keyof DefaultSchema["CompositeTypes"]
     | { schema: keyof DatabaseWithoutInternals },
-  CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
+  CompositeTypeName extends (PublicCompositeTypeNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
-    : never = never,
+    : never) = never,
 > = PublicCompositeTypeNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -856,9 +274,6 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["admin", "user"],
-      lead_status: ["new", "contacted", "quoted", "won", "lost"],
-      project_status: ["quoted", "in_progress", "completed", "on_hold", "cancelled"],
-      construction_payment_type: ["deposit", "milestone", "final", "other"],
     },
   },
 } as const
